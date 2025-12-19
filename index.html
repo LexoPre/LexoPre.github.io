@@ -11,37 +11,33 @@
     <meta name="keywords" content="clases virtuales de lenguaje, razonamiento verbal, literatura, preuniversitario, clases online Perú">
     <meta name="author" content="LEXO - Pedro Muñoz">
     <meta name="robots" content="index, follow">
-    <meta name="geo.region" content="PE">
-    <meta name="geo.placename" content="Perú">
 
     <style>
-        #btn-inscripcion {
+/* BOTÓN INSCRIPCIÓN */
+#btn-inscripcion {
     position: fixed;
     bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
-
-    background: #1857FF; /* rojo */
+    background: #1857FF;
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
     padding: 16px 36px;
     border-radius: 999px;
     text-decoration: none;
-
     box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-
     animation: flotando 2.8s ease-in-out infinite;
 }
 
-/* Efecto flotante */
 @keyframes flotando {
     0%   { transform: translate(-50%, 0); }
     50%  { transform: translate(-50%, -8px); }
     100% { transform: translate(-50%, 0); }
 }
 
+/* FONDO CLARO / OSCURO */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -51,159 +47,139 @@ body {
     overflow-x: hidden;
 }
 
-/* 🌙 Modo oscuro automático */
 @media (prefers-color-scheme: dark) {
     body {
-        background: #e0e0e0; /* gris */
+        background: #e0e0e0;
         color: #1857FF;
     }
 }
 
-       .bg-animation {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at 20% 20%, #5a9be0, transparent),
-                radial-gradient(circle at 80% 80%, #2f6fb8, transparent);
-    filter: blur(90px);
-    z-index: -1;
+header {
+    text-align: center;
+    padding: 40px 20px 25px;
 }
 
-        header {
-            text-align: center;
-            padding: 40px 20px 25px;
-            color: white;
-        }
+header h1 {
+    font-size: 5.5rem;
+    margin: 0;
+    font-weight: 900;
+}
 
-        header h1 {
-            font-size: 5.5rem;
-            margin: 0;
-            font-weight: 900;
-        }
-
-        header h2 {
+header h2 {
     font-size: 2.2rem;
     margin: 10px 0 5px;
     font-weight: 700;
-    color: #1857FF; /* azul profesional */
+    color: #1857FF;
 }
 
-        .especialidad {
-            font-size: 1.8rem;
-            font-style: italic;
-        }
+.especialidad {
+    font-size: 1.8rem;
+    font-style: italic;
+}
 
-        .nivel {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
+.nivel {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
 
-       .foto-docente {
+/* FOTO */
+.foto-docente {
     margin-top: 20px;
     display: inline-block;
-    padding: 6px;              /* círculo más pequeño */
+    padding: 6px;
     border-radius: 50%;
     background: white;
     box-shadow: 0 8px 25px rgba(0,0,0,0.35);
 }
 
-      .foto-docente img {
-    width: 260px;              /* foto un poco más grande visualmente */
+.foto-docente img {
+    width: 260px;
     height: 260px;
-    object-fit: cover;         /* llena mejor el círculo */
-    object-position: center 20%; /* baja la imagen para mostrar más rostro */
+    object-fit: cover;
+    object-position: center 20%;
     border-radius: 50%;
-    display: block;
 }
 
-        .docente {
-            margin-top: 12px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
+.docente {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 0 20px;
-        }
+/* CONTENEDOR */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+}
 
-    .card {
+/* CARDS (SOMBRA POWERPOINT) */
+.card {
     background: white;
     padding: 40px;
     border-radius: 18px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.21);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.21);
     margin-bottom: 35px;
 }
 
 .card h2 {
     color: #1857FF;
     font-size: 2.2rem;
-    margin: 0 0 10px 0; /* sin espacio arriba, solo abajo */
-    padding: 0;
+    margin: 0 0 10px 0;
 }
 
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 14px;
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin: 10px 15px 0 0;
-            text-decoration: none;
-            cursor: pointer;
-            color: white;
-        }
+/* BOTONES */
+.btn {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+}
 
-        .btn-matricula { background: #ff7b00; }
-        .btn-aula { background: #005ad1; }
-        .btn-whatsapp { background: #25D366; }
-        .btn-telegram { background: #2AABEE; }
+.btn-matricula { background: #ff7b00; }
+.btn-whatsapp { background: #25D366; }
+.btn-telegram { background: #2AABEE; }
 
-        .universidades {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+/* UNIVERSIDADES */
+.universidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-        .uni-tag {
-            background: linear-gradient(135deg,#0072ff,#00c6ff);
-            color: white;
-            padding: 14px 24px;
-            border-radius: 12px;
-            font-weight: bold;
-        }
-        #shareBtn {
+.uni-tag {
+    background: linear-gradient(135deg,#0072ff,#00c6ff);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+/* SHARE */
+#shareBtn {
     position: fixed;
     top: 16px;
     right: 16px;
     z-index: 9999;
-    background: #ffffff;
+    background: white;
     border: none;
     border-radius: 50%;
     width: 52px;
     height: 52px;
     font-size: 22px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-    cursor: pointer;
 }
-
-#shareBtn:active {
-    transform: scale(0.95);
-}
-
     </style>
 </head>
 
 <body>
-    <a href="https://wa.me/51943356235" 
-   id="btn-inscripcion" 
-   target="_blank" 
-   rel="noopener">
-   INSCRIPCIÓN
-</a>
 
-<button id="shareBtn" aria-label="Compartir página">🔗</button>
-<div class="bg-animation"></div>
+<a href="https://wa.me/51943356235" id="btn-inscripcion" target="_blank">INSCRIPCIÓN</a>
+<button id="shareBtn">🔗</button>
 
 <header>
     <h1>LEXO</h1>
@@ -212,84 +188,70 @@ body {
     <div class="nivel">nivel preuniversitario</div>
 
     <div class="foto-docente">
-        <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/FotoProfe.PNG" alt="Profesor de Lenguaje Preuniversitario">
+        <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/FotoProfe.PNG">
     </div>
     <div class="docente">DOCENTE Pedro Muñoz</div>
 </header>
 
 <main class="container">
 
-    <div class="card">
-        <h2>Preparación para...</h2>
-        <div class="universidades">
-            <div class="uni-tag">UNMSM</div>
-            <div class="uni-tag">UNI</div>
-            <div class="uni-tag">PUCP</div>
-            <div class="uni-tag">UPCH</div>
-            <div class="uni-tag">UNFV</div>
-            <div class="uni-tag">UNAC</div>
-        </div>
-    </div>
+<div class="card">
+<h2>Preparación para...</h2>
+<div class="universidades">
+<div class="uni-tag">UNMSM</div>
+<div class="uni-tag">UNI</div>
+<div class="uni-tag">PUCP</div>
+<div class="uni-tag">UPCH</div>
+<div class="uni-tag">UNFV</div>
+<div class="uni-tag">UNAC</div>
+</div>
+</div>
 
-    <div class="card">
-        <h2>Horarios</h2>
-        </ul>
-            <li>Mañana: 8:00 a.m. – 1:00 p.m.</li>
-            <li>Tarde: 3:00 p.m. – 7:00 p.m.</li>
-        </ul>
-    </div>
+<div class="card">
+<h2>Horarios</h2>
+<ul>
+<li>Mañana: 8:00 a.m. – 1:00 p.m.</li>
+<li>Tarde: 3:00 p.m. – 7:00 p.m.</li>
+</ul>
+</div>
 
-    <div class="card">
-        <h2>Cursos</h2>
-        </ul>
-            <li>Lenguaje</li>
-            <li>Literatura</li>
-            <li>Razonamiento verbal</li>
-        </ul>
-    </div>
+<div class="card">
+<h2>Cursos</h2>
+<ul>
+<li>Lenguaje</li>
+<li>Literatura</li>
+<li>Razonamiento verbal</li>
+</ul>
+</div>
 
-    <!-- ✅ PRECIOS EN SU LUGAR CORRECTO -->
-    <div class="card">
-        <h2>Precios</h2>
-        </ul>
-            <li>Mañana: S/300</li>
-            <li>Tarde: S/300</li>
-            <li>Completo: S/500</li>
-        </ul>
-        <a class="btn btn-matricula">Quiero matricularme</a>
-    </div>
+<div class="card">
+<h2>Precios</h2>
+<ul>
+<li>Mañana: S/300</li>
+<li>Tarde: S/300</li>
+<li>Completo: S/500</li>
+</ul>
+<a class="btn btn-matricula">Quiero matricularme</a>
+</div>
 
-    <div class="card">
-        <h2>Contacto</h2>
-        <a class="btn btn-whatsapp" href="https://wa.me/51943356235">WhatsApp</a>
-        <a class="btn btn-telegram" href="tg://msg?to=+51943356235">Telegram</a>
-    </div>
-    <!-- 🔎 TEXTO SEO (NO VISIBLE) -->
-    <section style="display:none;">
-        <h2>Clases virtuales de lenguaje y razonamiento verbal en Perú</h2>
-        <p>
-        LEXO ofrece clases virtuales de lenguaje, literatura y razonamiento verbal para nivel
-        preuniversitario. Preparación online para UNI, UNMSM, PUCP y otras universidades del Perú.
-        </p>
-    </section>
+<div class="card">
+<h2>Contacto</h2>
+<a class="btn btn-whatsapp" href="https://wa.me/51943356235">WhatsApp</a>
+<a class="btn btn-telegram" href="tg://msg?to=+51943356235">Telegram</a>
+</div>
 
 </main>
+
 <script>
-document.getElementById("shareBtn").addEventListener("click", async () => {
-    if (navigator.share) {
-        try {
-            await navigator.share({
-                title: document.title,
-                text: "Clases virtuales de Lenguaje y Razonamiento Verbal",
-                url: window.location.href
-            });
-        } catch (err) {
-            console.log("Compartir cancelado");
-        }
-    } else {
-        alert("La opción de compartir no está disponible en este dispositivo.");
-    }
+document.getElementById("shareBtn").onclick = () => {
+if (navigator.share) {
+navigator.share({
+title: document.title,
+url: window.location.href
 });
+}
+};
 </script>
+
 </body>
 </html>
