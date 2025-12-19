@@ -229,6 +229,22 @@
     </section>
 
 </main>
-
+<script>
+document.getElementById("shareBtn").addEventListener("click", async () => {
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: document.title,
+                text: "Clases virtuales de Lenguaje y Razonamiento Verbal",
+                url: window.location.href
+            });
+        } catch (err) {
+            console.log("Compartir cancelado");
+        }
+    } else {
+        alert("La opción de compartir no está disponible en este dispositivo.");
+    }
+});
+</script>
 </body>
 </html>
