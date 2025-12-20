@@ -330,49 +330,6 @@ header h2 {
 
 </main>
 
-<script>
-document.getElementById("shareBtn").onclick = () => {
-if (navigator.share) {
-navigator.share({
-title: document.title,
-url: window.location.href
-});
-}
-};
-    <script>
-const modal = document.getElementById("modalInscripcion");
-
-// Abrir modal desde botones
-document.getElementById("btn-inscripcion").onclick = () => {
-  modal.classList.add("active");
-};
-
-document.querySelectorAll(".btn-matricula").forEach(btn => {
-  btn.onclick = () => modal.classList.add("active");
-});
-
-// Envío a WhatsApp
-document.getElementById("formInscripcion").onsubmit = function(e) {
-  e.preventDefault();
-
-  const datos = Array.from(this.elements)
-    .filter(el => el.tagName === "INPUT" || el.tagName === "SELECT")
-    .map(el => el.value);
-
-  const mensaje = 
-`INSCRIPCIÓN CLASES VIRTUALES
-Apellidos: ${datos[0]}
-Nombres: ${datos[1]}
-Horario: ${datos[2]}
-Universidad: ${datos[3]}
-Fecha de postulación: ${datos[4]}`;
-
-  const url = `https://wa.me/51943356235?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
-};
-</script>
-
-</script>
 <!-- ===== MODAL INSCRIPCIÓN ===== -->
 <div id="modalInscripcion" class="modal">
   <div class="modal-content">
@@ -412,6 +369,48 @@ Fecha de postulación: ${datos[4]}`;
     </form>
   </div>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
+  const modal = document.getElementById("modalInscripcion");
+  const btnInscripcion = document.getElementById("btn-inscripcion");
+  const btnsMatricula = document.querySelectorAll(".btn-matricula");
+  const form = document.getElementById("formInscripcion");
+
+  // Abrir modal
+  btnInscripcion.addEventListener("click", () => {
+    modal.classList.add("active");
+  });
+
+  btnsMatricula.forEach(btn => {
+    btn.addEventListener("click", () => {
+      modal.classList.add("active");
+    });
+  });
+
+  // Enviar a WhatsApp
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const datos = Array.from(form.elements)
+      .filter(el => el.tagName === "INPUT" || el.tagName === "SELECT")
+      .map(el => el.value);
+
+    const mensaje =
+`INSCRIPCIÓN CLASES VIRTUALES
+Apellidos: ${datos[0]}
+Nombres: ${datos[1]}
+Horario: ${datos[2]}
+Universidad: ${datos[3]}
+Fecha de postulación: ${datos[4]}`;
+
+    window.open(
+      "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
+      "_blank"
+    );
+  });
+
+});
+</script>
 </body>
 </html>
