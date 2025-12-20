@@ -45,6 +45,7 @@
 }
 
 .modal-content {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.21);
     position: relative;      /* ← CLAVE */
     background: white;
     border-radius: 28px;
@@ -114,6 +115,7 @@ header h2,
         
 /* BOTÓN INSCRIPCIÓN */
 #btn-inscripcion {
+    border: none;
     position: fixed;
     bottom: 24px;
     left: 50%;
@@ -387,7 +389,18 @@ header h2 {
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  const shareBtn = document.getElementById("shareBtn");
 
+  shareBtn.addEventListener("click", () => {
+    if (navigator.share) {
+      navigator.share({
+        title: document.title,
+        url: window.location.href
+      });
+    } else {
+      alert("Tu navegador no permite compartir");
+    }
+  });
   const modal = document.getElementById("modalInscripcion");
 const closeBtn = document.querySelector(".modal-close");
   const btnInscripcion = document.getElementById("btn-inscripcion");
