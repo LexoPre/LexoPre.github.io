@@ -13,6 +13,21 @@
     <meta name="robots" content="index, follow">
 
     <style>
+        /* Botón cerrar modal */
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #0D0D0D;
+}
+        /* Color de labels del formulario */
+.modal-content label {
+    color: #0D0D0D;
+}
         /* ===== MODAL ===== */
 .modal {
     position: fixed;
@@ -332,7 +347,8 @@ header h2 {
 
 <!-- ===== MODAL INSCRIPCIÓN ===== -->
 <div id="modalInscripcion" class="modal">
-  <div class="modal-content">
+<div class="modal-content">
+    <button class="modal-close" type="button">✕</button>
     <h2>Formulario de Inscripción</h2>
 
     <form id="formInscripcion">
@@ -373,6 +389,7 @@ header h2 {
 document.addEventListener("DOMContentLoaded", () => {
 
   const modal = document.getElementById("modalInscripcion");
+const closeBtn = document.querySelector(".modal-close");
   const btnInscripcion = document.getElementById("btn-inscripcion");
   const btnsMatricula = document.querySelectorAll(".btn-matricula");
   const form = document.getElementById("formInscripcion");
@@ -380,7 +397,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Abrir modal
   btnInscripcion.addEventListener("click", () => {
     modal.classList.add("active");
-  });
+  // Cerrar modal sin borrar datos
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+});
 
   btnsMatricula.forEach(btn => {
     btn.addEventListener("click", () => {
