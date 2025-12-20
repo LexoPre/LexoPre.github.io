@@ -16,13 +16,14 @@
         /* Botón cerrar modal */
 .modal-close {
     position: absolute;
-    top: 100px;        /* ← baja la X */
-    right: 28px;      /* alineada con el padding */
+    top: 20px;          /* dentro del cuadro */
+    right: 20px;
     background: none;
     border: none;
-    font-size: 1.6rem;
+    font-size: 1.1rem;  /* más pequeña */
     cursor: pointer;
     color: #0D0D0D;
+    line-height: 1;
 }
         /* Color de labels del formulario */
 .modal-content label {
@@ -44,6 +45,7 @@
 }
 
 .modal-content {
+    position: relative;      /* ← CLAVE */
     background: white;
     border-radius: 28px;
     padding: 32px;
