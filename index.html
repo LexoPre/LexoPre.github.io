@@ -13,6 +13,26 @@
     <meta name="robots" content="index, follow">
 
     <style>
+        /* ===== TEXTO CLARO / OSCURO PERSONALIZADO ===== */
+
+/* MODO CLARO */
+.docente,
+header h2,
+.card h2,
+.card ul li {
+    color: #0D0D0D;
+}
+
+/* MODO OSCURO */
+@media (prefers-color-scheme: dark) {
+    .docente,
+    header h2,
+    .card h2,
+    .card ul li {
+        color: #FFFFFF;
+    }
+}
+        
 /* BOTÓN INSCRIPCIÓN */
 #btn-inscripcion {
     position: fixed;
@@ -86,19 +106,22 @@ header h2 {
 .foto-docente {
     margin-top: 20px;
     display: inline-block;
-    padding: 6px;
-    border-radius: 50%;
-    background: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    width: 260px;
+    height: 260px;
+    overflow: hidden;        /* ← corta la foto */
+    background: transparent; /* invisible */
+    box-shadow: none;        /* sin sombra */
+    border-radius: 0;        /* cuadrado */
 }
 
 .foto-docente img {
-    width: 260px;
-    height: 260px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center 20%;
-    border-radius: 50%;
+    border-radius: 0;        /* sin círculo */
 }
+
 
 .docente {
     margin-top: 12px;
