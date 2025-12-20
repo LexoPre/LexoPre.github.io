@@ -403,12 +403,13 @@ const closeBtn = document.querySelector(".modal-close");
   const form = document.getElementById("formInscripcion");
 
   // Abrir modal
-  btnInscripcion.addEventListener("click", () => {
-    modal.classList.add("active");
-  // Cerrar modal sin borrar datos
+ btnInscripcion.addEventListener("click", () => {
+  modal.classList.add("active");
+});
+
+// Cerrar modal con la "✕"
 closeBtn.addEventListener("click", () => {
   modal.classList.remove("active");
-});
 });
 
   btnsMatricula.forEach(btn => {
