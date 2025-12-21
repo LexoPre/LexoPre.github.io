@@ -14,6 +14,22 @@
     <meta name="robots" content="index, follow">
 
     <style>
+        /* IMAGEN PANTALLA COMPLETA */
+.img-full {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+}
+        /* IMAGEN HORARIOS */
+.img-horarios {
+    width: 100%;
+    max-width: 500px;
+    cursor: pointer;
+    border-radius: 14px;
+    display: block;
+    margin: 0 auto;
+}
+
         /* Botón cerrar modal */
 .modal-close {
     position: absolute;
@@ -319,11 +335,14 @@ header h2 {
 </div>
 
 <div class="card">
-<h2>Horarios</h2>
-<ul>
-<li>Mañana:     8:00 a.m. – 1:00 p.m.</li>
-<li>Tarde:      3:00 p.m. – 7:00 p.m.</li>
-</ul>
+  <h2>Horarios</h2>
+
+  <img 
+    src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Horarios.jpg"
+    alt="Horarios de clases"
+    class="img-horarios"
+    id="imgHorarios"
+  >
 </div>
 
 <div class="card">
@@ -442,8 +461,27 @@ Fecha de postulación: ${datos[4]}`;
       "_blank"
     );
   });
+// MODAL HORARIOS
+const imgHorarios = document.getElementById("imgHorarios");
+const modalImagen = document.getElementById("modalImagen");
 
+imgHorarios.addEventListener("click", () => {
+  modalImagen.classList.add("active");
+});
+
+modalImagen.addEventListener("click", (e) => {
+  if (e.target === modalImagen) {
+    modalImagen.classList.remove("active");
+  }
+});
 });
 </script>
+    <!-- MODAL IMAGEN HORARIOS -->
+<div id="modalImagen" class="modal">
+  <img 
+    src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Horarios.jpg"
+    class="img-full"
+  >
+</div>
 </body>
 </html>
