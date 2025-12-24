@@ -412,43 +412,91 @@ header h2 {
   </div>
 </div>
 <script>
-    <script>
-const duracion = document.getElementById("duracion");
-const frecuencia = document.getElementById("frecuencia");
-const campoGrupo = document.getElementById("campoGrupo");
-const grupo = document.getElementById("grupo");
+document.addEventListener("DOMContentLoaded", () => {
 
-duracion.addEventListener("change", () => {
-  frecuencia.innerHTML = '<option value="">Seleccionar</option>';
-  frecuencia.disabled = false;
-  campoGrupo.style.display = "none";
-  grupo.required = false;
+  const btnInscripcion = document.getElementById("btn-inscripcion");
+  const modal = document.getElementById("modalInscripcion");
+  const closeBtn = document.querySelector(".modal-close");
+  const form = document.getElementById("formInscripcion");
 
-  if (duracion.value === "Clase") {
-    frecuencia.innerHTML += `
-      <option>1 hora</option>
-      <option>2 horas</option>
-      <option>3 horas</option>
-    `;
-  } else {
-    frecuencia.innerHTML += `
-      <option>Diario (5 días)</option>
-      <option>Interdiario (3 días)</option>
-      <option>Interdiario (2 días)</option>
-    `;
-  }
-});
+  const duracion = document.getElementById("duracion");
+  const frecuencia = document.getElementById("frecuencia");
+  const campoGrupo = document.getElementById("campoGrupo");
+  const grupo = document.getElementById("grupo");
 
-frecuencia.addEventListener("change", () => {
-  if (duracion.value !== "Clase" && frecuencia.value !== "") {
-    campoGrupo.style.display = "flex";
-    grupo.required = true;
-  } else {
+  /* ABRIR / CERRAR MODAL */
+  btnInscripcion.addEventListener("click", () => {
+    modal.classList.add("active");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+
+  /* DURACIÓN → FRECUENCIA */
+  duracion.addEventListener("change", () => {
+    frecuencia.innerHTML = '<option value="">Seleccionar</option>';
+    frecuencia.disabled = false;
     campoGrupo.style.display = "none";
     grupo.required = false;
-  }
+
+    if (duracion.value === "Clase") {
+      frecuencia.innerHTML += `
+        <option>1 hora</option>
+        <option>2 horas</option>
+        <option>3 horas</option>
+      `;
+    } else {
+      frecuencia.innerHTML += `
+        <option>Diario (5 días)</option>
+        <option>Interdiario (3 días)</option>
+        <option>Interdiario (2 días)</option>
+      `;
+    }
+  });
+
+  /* FRECUENCIA → GRUPO */
+  frecuencia.addEventListener("change", () => {
+    if (duracion.value !== "Clase" && frecuencia.value !== "") {
+      campoGrupo.style.display = "flex";
+      grupo.required = true;
+    } else {
+      campoGrupo.style.display = "none";
+      grupo.required = false;
+    }
+  });
+
+  /* ENVIAR A WHATSAPP */
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const apellidos = form.elements[0].value;
+    const nombres = form.elements[1].value;
+    const dur = duracion.value;
+    const freq = frecuencia.value;
+    const grp = grupo.value || "No aplica";
+    const universidad = form.elements[form.elements.length - 2].value;
+    const fecha = form.elements[form.elements.length - 1].value;
+
+    const mensaje =
+`INSCRIPCIÓN CLASES VIRTUALES
+Apellidos: ${apellidos}
+Nombres: ${nombres}
+Duración: ${dur}
+Frecuencia: ${freq}
+Grupo: ${grp}
+Universidad: ${universidad}
+Fecha de postulación: ${fecha}`;
+
+    window.open(
+      "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
+      "_blank"
+    );
+  });
+
 });
 </script>
+
 document.addEventListener("DOMContentLoaded", () => {
   const shareBtn = document.getElementById("shareBtn");
 
