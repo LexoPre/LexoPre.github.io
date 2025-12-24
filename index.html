@@ -388,6 +388,15 @@ header h2 {
   </div>
 </div>
 <script>
+    <script>
+(function bloquearAtras() {
+  history.pushState(null, "", location.href);
+
+  window.addEventListener("popstate", function () {
+    history.pushState(null, "", location.href);
+  });
+})();
+</script>
 document.addEventListener("DOMContentLoaded", () => {
   const shareBtn = document.getElementById("shareBtn");
 
