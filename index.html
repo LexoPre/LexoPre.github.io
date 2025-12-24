@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -366,36 +367,14 @@ header h2 {
         <input type="text" required>
       </div>
 
-<div class="campo">
-  <label>Duración</label>
-  <select id="duracion" required>
-    <option value="">Seleccionar</option>
-    <option value="Ciclo">Ciclo (12 semanas)</option>
-    <option value="Mes">Mes (4 semanas)</option>
-    <option value="Semana">Semana</option>
-    <option value="Clase">Clase</option>
-  </select>
-</div>
-
-<div class="campo">
-  <label>Frecuencia</label>
-  <select id="frecuencia" required disabled>
-    <option value="">Seleccionar</option>
-  </select>
-</div>
-
-<div class="campo" id="campoGrupo" style="display:none;">
-  <label>Grupo</label>
-  <select id="grupo">
-    <option value="">Seleccionar</option>
-    <option>Grupo 1 (08:00 - 09:40)</option>
-    <option>Grupo 2 (10:00 - 11:40)</option>
-    <option>Grupo 3 (12:00 - 13:40)</option>
-    <option>Grupo 4 (15:00 - 16:40)</option>
-    <option>Grupo 5 (17:00 - 18:40)</option>
-  </select>
-</div>
-
+      <div class="campo">
+        <label>Horario</label>
+        <select required>
+          <option value="">Seleccionar</option>
+          <option>Mañana: 8:00 a.m. – 1:00 p.m.</option>
+          <option>Tarde: 3:00 p.m. – 7:00 p.m.</option>
+        </select>
+      </div>
 
       <div class="campo">
         <label>Universidad a la que postula</label>
@@ -412,91 +391,6 @@ header h2 {
   </div>
 </div>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const btnInscripcion = document.getElementById("btn-inscripcion");
-  const modal = document.getElementById("modalInscripcion");
-  const closeBtn = document.querySelector(".modal-close");
-  const form = document.getElementById("formInscripcion");
-
-  const duracion = document.getElementById("duracion");
-  const frecuencia = document.getElementById("frecuencia");
-  const campoGrupo = document.getElementById("campoGrupo");
-  const grupo = document.getElementById("grupo");
-
-  /* ABRIR / CERRAR MODAL */
-  btnInscripcion.addEventListener("click", () => {
-    modal.classList.add("active");
-  });
-
-  closeBtn.addEventListener("click", () => {
-    modal.classList.remove("active");
-  });
-
-  /* DURACIÓN → FRECUENCIA */
-  duracion.addEventListener("change", () => {
-    frecuencia.innerHTML = '<option value="">Seleccionar</option>';
-    frecuencia.disabled = false;
-    campoGrupo.style.display = "none";
-    grupo.required = false;
-
-    if (duracion.value === "Clase") {
-      frecuencia.innerHTML += `
-        <option>1 hora</option>
-        <option>2 horas</option>
-        <option>3 horas</option>
-      `;
-    } else {
-      frecuencia.innerHTML += `
-        <option>Diario (5 días)</option>
-        <option>Interdiario (3 días)</option>
-        <option>Interdiario (2 días)</option>
-      `;
-    }
-  });
-
-  /* FRECUENCIA → GRUPO */
-  frecuencia.addEventListener("change", () => {
-    if (duracion.value !== "Clase" && frecuencia.value !== "") {
-      campoGrupo.style.display = "flex";
-      grupo.required = true;
-    } else {
-      campoGrupo.style.display = "none";
-      grupo.required = false;
-    }
-  });
-
-  /* ENVIAR A WHATSAPP */
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-
-    const apellidos = form.elements[0].value;
-    const nombres = form.elements[1].value;
-    const dur = duracion.value;
-    const freq = frecuencia.value;
-    const grp = grupo.value || "No aplica";
-    const universidad = form.elements[form.elements.length - 2].value;
-    const fecha = form.elements[form.elements.length - 1].value;
-
-    const mensaje =
-`INSCRIPCIÓN CLASES VIRTUALES
-Apellidos: ${apellidos}
-Nombres: ${nombres}
-Duración: ${dur}
-Frecuencia: ${freq}
-Grupo: ${grp}
-Universidad: ${universidad}
-Fecha de postulación: ${fecha}`;
-
-    window.open(
-      "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
-      "_blank"
-    );
-  });
-
-});
-</script>
-
 document.addEventListener("DOMContentLoaded", () => {
   const shareBtn = document.getElementById("shareBtn");
 
@@ -536,13 +430,9 @@ closeBtn.addEventListener("click", () => {
   form.addEventListener("submit", e => {
     e.preventDefault();
 
- const apellidos = form.elements[0].value;
-const nombres = form.elements[1].value;
-const dur = duracion.value;
-const freq = frecuencia.value;
-const grp = grupo.value || "No aplica";
-const universidad = form.elements[form.elements.length - 2].value;
-const fecha = form.elements[form.elements.length - 1].value;
+    const datos = Array.from(form.elements)
+      .filter(el => el.tagName === "INPUT" || el.tagName === "SELECT")
+      .map(el => el.value);
 
     const mensaje =
 `INSCRIPCIÓN CLASES VIRTUALES
