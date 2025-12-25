@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -387,7 +388,7 @@ header h2 {
 
 <div class="card">
   <h2>Contacto</h2>
-  <p>📞 <b>943356235</b></p>
+  <p>📱 <b>943356235</b></p>
 </div>
     
 </main>
@@ -449,7 +450,7 @@ header h2 {
   <select id="metodoPago" required>
     <option value="">Seleccionar</option>
     <option value="Yape">Yape</option>
-<option value="BCP">Transferencia</option>
+    <option value="BCP">Transferencia en BCP</option>
   </select>
 </div>
 
@@ -575,30 +576,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const apellidos = form.elements[0].value;
     const nombres = form.elements[1].value;
-    const uniVal = form.elements[5].value; // Índice corregido para Universidad
-    const precioTexto = precioTotal.innerText;
+    const universidad = form.elements[form.elements.length - 2].value;
 
-    let mensaje = 
+    const mensaje =
 `INSCRIPCIÓN CLASES VIRTUALES
 Apellidos: ${apellidos}
 Nombres: ${nombres}
 Duración: ${duracion.value}
-Frecuencia: ${frecuencia.value}`;
-
-    // Solo agrega el Grupo si no es una "Clase" y si hay un valor seleccionado
-    if (duracion.value !== "Clase" && grupo.value) {
-      mensaje += `\nGrupo: ${grupo.value}`;
-    }
-
-    mensaje += `\nUniversidad: ${uniVal}`;
-    mensaje += `\n${precioTexto}`;
-    mensaje += `\nMétodo de pago: ${metodoPago.value}`;
+Frecuencia: ${frecuencia.value}
+Grupo: ${grupo.value || "No aplica"}
+Universidad: ${universidad}`;
 
     window.open(
       "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
       "_blank"
     );
   });
+
+});
+</script>
+
     <!-- MODAL IMAGEN HORARIOS -->
 <div id="modalImagen" class="modal">
   <img 
