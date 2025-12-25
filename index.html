@@ -487,7 +487,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.remove("active");
   });
 
-  /* DURACIÓN */
+ /* LÓGICA DE DURACIÓN, PRECIOS Y GRUPO */
   duracion.addEventListener("change", () => {
     campoFrecuencia.style.display = "flex";
     frecuencia.innerHTML = '<option value="">Seleccionar</option>';
@@ -507,6 +507,36 @@ document.addEventListener("DOMContentLoaded", () => {
         <option>Interdiario (3 días)</option>
         <option>Interdiario (2 días)</option>
       `;
+    }
+  });
+
+  frecuencia.addEventListener("change", () => {
+    let precio = "";
+
+    if (duracion.value === "Ciclo") {
+      precio = frecuencia.value.includes("5") ? "S/ 250" :
+               frecuencia.value.includes("3") ? "S/ 200" : "S/ 180";
+    } else if (duracion.value === "Mes") {
+      precio = frecuencia.value.includes("5") ? "S/ 150" :
+               frecuencia.value.includes("3") ? "S/ 100" : "S/ 80";
+    } else if (duracion.value === "Semana") {
+      precio = frecuencia.value.includes("5") ? "S/ 50" :
+               frecuencia.value.includes("3") ? "S/ 30" : "S/ 20";
+    } else if (duracion.value === "Clase") {
+      precio = frecuencia.value.includes("3") ? "S/ 20" :
+               frecuencia.value.includes("2") ? "S/ 15" : "S/ 10";
+    }
+
+    precioTotal.innerText = "Precio total: " + precio;
+
+    // ESTO ACTIVA LOS 5 GRUPOS OBLIGATORIOS
+    if (duracion.value !== "Clase" && duracion.value !== "") {
+      campoGrupo.style.display = "flex";
+      grupo.required = true; 
+    } else {
+      campoGrupo.style.display = "none";
+      grupo.required = false;
+      grupo.value = "";
     }
   });
 /* LÓGICA DE MÉTODOS DE PAGO */
