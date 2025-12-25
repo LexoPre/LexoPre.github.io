@@ -297,6 +297,31 @@ header h2 {
     font-size: 22px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
+        /* Estilos para los botones de pago */
+.btn-pago-app {
+    display: block;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+.btn-yape-app { background: #742284; } /* Morado Yape */
+.btn-bcp-app { background: #002A54; }  /* Azul BCP */
+
+.info-pago-texto {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #333;
+}
+.link-ws {
+    color: #25D366;
+    text-decoration: underline;
+    font-weight: bold;
+}
     </style>
 </head>
 
@@ -483,7 +508,41 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
   });
+/* LÓGICA DE MÉTODOS DE PAGO */
+  const metodoPago = document.getElementById("metodoPago");
+  const infoPago = document.getElementById("infoPago");
 
+  metodoPago.addEventListener("change", () => {
+    infoPago.style.display = "block";
+    infoPago.style.paddingBottom = "20px";
+
+    if (metodoPago.value === "Yape") {
+      infoPago.innerHTML = `
+        <div class="info-pago-texto">
+          <a href="yape://" style="text-decoration:none; color:inherit; font-weight:bold;">
+            <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Yape.jpg" style="height:20px; vertical-align:middle;"> 
+            Yape: 943356235
+          </a>
+          <br>
+          <a href="yape://" class="btn-pago-app btn-yape-app">Abrir Yape</a>
+          Envíe la captura Yape al número <a href="https://wa.me/51943356235" class="link-ws">943356235</a> por WhatsApp
+        </div>
+      `;
+    } else if (metodoPago.value === "BCP") {
+      infoPago.innerHTML = `
+        <div class="info-pago-texto">
+          <strong>Transferencia en BCP</strong><br>
+          Cuenta: 19192984638074<br>
+          CCI: 00219119298463807458<br>
+          A nombre de: Pedro Pablo Muñoz López
+          <a href="bcp://タップ" class="btn-pago-app btn-bcp-app">Abrir BCP</a>
+          Compartir recibo de transferencia a <a href="https://wa.me/51943356235" class="link-ws">943356235</a>
+        </div>
+      `;
+    } else {
+      infoPago.style.display = "none";
+    }
+  });
   /* FRECUENCIA */
   frecuencia.addEventListener("change", () => {
     let precio = "";
