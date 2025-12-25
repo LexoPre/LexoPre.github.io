@@ -336,7 +336,17 @@ header h2 {
 <div class="uni-tag">UNPRG</div>
 </div>
 </div>
+<div class="card">
+  <h2>Costos y horarios</h2>
 
+  <img 
+    src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Horarios.jpg"
+    alt="Horarios de clases"
+    class="img-horarios"
+    id="imgHorarios"
+  >
+</div>
+    
 <div class="card">
   <h2>Método de pago</h2>
   <p>
@@ -353,14 +363,6 @@ header h2 {
 <div class="card">
   <h2>Contacto</h2>
   <p>📱 <b>943356235</b></p>
-</div>
-
-  <img 
-    src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Horarios.jpg"
-    alt="Horarios de clases"
-    class="img-horarios"
-    id="imgHorarios"
-  >
 </div>
     
 </main>
@@ -484,9 +486,7 @@ duracion.addEventListener("change", () => {
     `;
   }
 });
-
 frecuencia.addEventListener("change", () => {
-    frecuencia.addEventListener("change", () => {
   let precio = "";
 
   if (duracion.value === "Ciclo") {
@@ -513,40 +513,17 @@ frecuencia.addEventListener("change", () => {
     else precio = "Precio total: S/ 10";
   }
 
-  document.getElementById("precioTotal").innerText = precio;
+  precioTotal.innerText = precio;
+
+  if (duracion.value !== "Clase") {
+    campoGrupo.style.display = "flex";
+    grupo.required = true;
+  } else {
+    campoGrupo.style.display = "none";
+    grupo.required = false;
+  }
 });
     
-  let precio = "";
-
-  if (duracion.value === "Ciclo") {
-    if (frecuencia.value.includes("5")) precio = "S/ 250";
-    else if (frecuencia.value.includes("3")) precio = "S/ 200";
-    else precio = "S/ 180";
-  }
-
-  if (duracion.value === "Mes") {
-    if (frecuencia.value.includes("5")) precio = "S/ 150";
-    else if (frecuencia.value.includes("3")) precio = "S/ 100";
-    else precio = "S/ 80";
-  }
-
-  if (duracion.value === "Semana") {
-    if (frecuencia.value.includes("5")) precio = "S/ 50";
-    else if (frecuencia.value.includes("3")) precio = "S/ 30";
-    else precio = "S/ 20";
-  }
-
-  if (duracion.value === "Clase") {
-    if (frecuencia.value.includes("3")) precio = "S/ 20";
-    else if (frecuencia.value.includes("2")) precio = "S/ 15";
-    else precio = "S/ 10";
-  }
-
-  precioTotal.value = precio;
-}
-
-duracion.addEventListener("change", calcularPrecio);
-frecuencia.addEventListener("change", calcularPrecio);
 metodoPago.addEventListener("change", () => {
   infoPago.style.display = "block";
 
