@@ -543,26 +543,20 @@ document.addEventListener("DOMContentLoaded", () => {
       infoPago.style.display = "none";
     }
   });
-  /* FRECUENCIA */
+ /* FRECUENCIA */
   frecuencia.addEventListener("change", () => {
     let precio = "";
 
     if (duracion.value === "Ciclo") {
       precio = frecuencia.value.includes("5") ? "S/ 250" :
                frecuencia.value.includes("3") ? "S/ 200" : "S/ 180";
-    }
-
-    if (duracion.value === "Mes") {
+    } else if (duracion.value === "Mes") {
       precio = frecuencia.value.includes("5") ? "S/ 150" :
                frecuencia.value.includes("3") ? "S/ 100" : "S/ 80";
-    }
-
-    if (duracion.value === "Semana") {
+    } else if (duracion.value === "Semana") {
       precio = frecuencia.value.includes("5") ? "S/ 50" :
                frecuencia.value.includes("3") ? "S/ 30" : "S/ 20";
-    }
-
-    if (duracion.value === "Clase") {
+    } else if (duracion.value === "Clase") {
       precio = frecuencia.value.includes("3") ? "S/ 20" :
                frecuencia.value.includes("2") ? "S/ 15" : "S/ 10";
     }
