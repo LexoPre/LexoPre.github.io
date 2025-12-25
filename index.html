@@ -590,19 +590,31 @@ const freq = frecuencia.value;
 const grp = grupo.value || "No aplica";
 const universidad = form.elements[form.elements.length - 2].value;
 
-const mensaje =
+form.addEventListener("submit", e => {
+  e.preventDefault();
+
+  const apellidos = form.elements[0].value;
+  const nombres = form.elements[1].value;
+  const dur = duracion.value;
+  const freq = frecuencia.value;
+  const grp = grupo.value || "No aplica";
+  const universidad = form.elements[form.elements.length - 2].value;
+
+  const mensaje =
 `INSCRIPCIÓN CLASES VIRTUALES
 Apellidos: ${apellidos}
 Nombres: ${nombres}
 Duración: ${dur}
 Frecuencia: ${freq}
 Grupo: ${grp}
-Universidad: ${universidad}
+Universidad: ${universidad}`;
 
-    window.open(
-      "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
-      "_blank"
-    );
+  window.open(
+    "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
+    "_blank"
+  );
+});
+
   });
 // MODAL HORARIOS
 const imgHorarios = document.getElementById("imgHorarios");
