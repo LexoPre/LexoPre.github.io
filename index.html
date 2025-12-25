@@ -438,207 +438,110 @@ header h2 {
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const shareBtn = document.getElementById("shareBtn");
 
-  shareBtn.addEventListener("click", () => {
-    if (navigator.share) {
-      navigator.share({
-        title: document.title,
-        url: window.location.href
-      });
-    } else {
-      alert("Tu navegador no permite compartir");
-    }
-  });
   const modal = document.getElementById("modalInscripcion");
-const closeBtn = document.querySelector(".modal-close");
   const btnInscripcion = document.getElementById("btn-inscripcion");
-  const btnsMatricula = document.querySelectorAll(".btn-matricula");
+  const closeBtn = document.querySelector(".modal-close");
   const form = document.getElementById("formInscripcion");
-const duracion = document.getElementById("duracion");
-const frecuencia = document.getElementById("frecuencia");
-const campoGrupo = document.getElementById("campoGrupo");
-const grupo = document.getElementById("grupo");
-const precioTotal = document.getElementById("precioTotal");
-const metodoPago = document.getElementById("metodoPago");
-const infoPago = document.getElementById("infoPago");
 
-const campoFrecuencia = document.getElementById("campoFrecuencia");
+  const duracion = document.getElementById("duracion");
+  const frecuencia = document.getElementById("frecuencia");
+  const campoFrecuencia = document.getElementById("campoFrecuencia");
+  const campoGrupo = document.getElementById("campoGrupo");
+  const grupo = document.getElementById("grupo");
+  const precioTotal = document.getElementById("precioTotal");
 
-duracion.addEventListener("change", () => {
-  campoFrecuencia.style.display = "flex";
-  frecuencia.innerHTML = '<option value="">Seleccionar</option>';
-  campoGrupo.style.display = "none";
-  grupo.required = false;
-  document.getElementById("precioTotal").innerText = "";
+  /* ABRIR MODAL */
+  btnInscripcion.addEventListener("click", () => {
+    modal.classList.add("active");
+  });
 
-  if (duracion.value === "Clase") {
-    frecuencia.innerHTML += `
-      <option>1 hora</option>
-      <option>2 horas</option>
-      <option>3 horas</option>
-    `;
-  } else {
-    frecuencia.innerHTML += `
-      <option>Diario (5 días)</option>
-      <option>Interdiario (3 días)</option>
-      <option>Interdiario (2 días)</option>
-    `;
-  }
-});
-frecuencia.addEventListener("change", () => {
-  let precio = "";
+  /* CERRAR MODAL */
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
 
-  if (duracion.value === "Ciclo") {
-    if (frecuencia.value.includes("5")) precio = "Precio total: S/ 250";
-    else if (frecuencia.value.includes("3")) precio = "Precio total: S/ 200";
-    else precio = "Precio total: S/ 180";
-  }
-
-  if (duracion.value === "Mes") {
-    if (frecuencia.value.includes("5")) precio = "Precio total: S/ 150";
-    else if (frecuencia.value.includes("3")) precio = "Precio total: S/ 100";
-    else precio = "Precio total: S/ 80";
-  }
-
-  if (duracion.value === "Semana") {
-    if (frecuencia.value.includes("5")) precio = "Precio total: S/ 50";
-    else if (frecuencia.value.includes("3")) precio = "Precio total: S/ 30";
-    else precio = "Precio total: S/ 20";
-  }
-
-  if (duracion.value === "Clase") {
-    if (frecuencia.value.includes("3")) precio = "Precio total: S/ 20";
-    else if (frecuencia.value.includes("2")) precio = "Precio total: S/ 15";
-    else precio = "Precio total: S/ 10";
-  }
-
-  precioTotal.innerText = precio;
-
-  if (duracion.value !== "Clase") {
-    campoGrupo.style.display = "flex";
-    grupo.required = true;
-  } else {
+  /* DURACIÓN */
+  duracion.addEventListener("change", () => {
+    campoFrecuencia.style.display = "flex";
+    frecuencia.innerHTML = '<option value="">Seleccionar</option>';
     campoGrupo.style.display = "none";
     grupo.required = false;
-  }
-});
-    
-metodoPago.addEventListener("change", () => {
-  infoPago.style.display = "block";
+    precioTotal.innerText = "";
 
-  if (metodoPago.value === "Yape") {
-    infoPago.innerHTML = `
-      <p>
-        <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Yape.jpg"
-             style="height:26px;border-radius:8px;vertical-align:middle;">
-        <a href="yape://pay?phone=943356235"><b>Yape: 943356235</b></a>
-      </p>
-
-      <button style="background:#7a1fa2;color:white;border:none;padding:10px 18px;border-radius:12px;"
-        onclick="window.location.href='yape://pay?phone=943356235'">
-        Abrir Yape
-      </button>
-
-      <p style="margin-top:10px;">
-        Envíe la captura Yape al número
-        <a href="https://wa.me/51943356235">943356235 por WhatsApp</a>
-      </p>
-    `;
-  }
-
-  if (metodoPago.value === "BCP") {
-    infoPago.innerHTML = `
-      <p>
-        <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/BCP.jpg"
-             style="height:26px;border-radius:8px;vertical-align:middle;">
-        <b>Transferencia en BCP</b>
-      </p>
-
-      <p>
-        Cuenta: 19192984638074<br>
-        CCI: 00219119298463807458<br>
-        A nombre de: Pedro Pablo Muñoz López
-      </p>
-
-      <button style="background:#1857FF;color:white;border:none;padding:10px 18px;border-radius:12px;">
-        Abrir BCP
-      </button>
-
-      <p style="margin-top:10px;">
-        Compartir recibo a
-        <a href="https://wa.me/51943356235">943356235</a>
-      </p>
-    `;
-  }
-});
-
-  btnsMatricula.forEach(btn => {
-    btn.addEventListener("click", () => {
-      modal.classList.add("active");
-    });
+    if (duracion.value === "Clase") {
+      frecuencia.innerHTML += `
+        <option>1 hora</option>
+        <option>2 horas</option>
+        <option>3 horas</option>
+      `;
+    } else {
+      frecuencia.innerHTML += `
+        <option>Diario (5 días)</option>
+        <option>Interdiario (3 días)</option>
+        <option>Interdiario (2 días)</option>
+      `;
+    }
   });
 
-  // Enviar a WhatsApp
+  /* FRECUENCIA */
+  frecuencia.addEventListener("change", () => {
+    let precio = "";
+
+    if (duracion.value === "Ciclo") {
+      precio = frecuencia.value.includes("5") ? "S/ 250" :
+               frecuencia.value.includes("3") ? "S/ 200" : "S/ 180";
+    }
+
+    if (duracion.value === "Mes") {
+      precio = frecuencia.value.includes("5") ? "S/ 150" :
+               frecuencia.value.includes("3") ? "S/ 100" : "S/ 80";
+    }
+
+    if (duracion.value === "Semana") {
+      precio = frecuencia.value.includes("5") ? "S/ 50" :
+               frecuencia.value.includes("3") ? "S/ 30" : "S/ 20";
+    }
+
+    if (duracion.value === "Clase") {
+      precio = frecuencia.value.includes("3") ? "S/ 20" :
+               frecuencia.value.includes("2") ? "S/ 15" : "S/ 10";
+    }
+
+    precioTotal.innerText = "Precio total: " + precio;
+
+    if (duracion.value !== "Clase") {
+      campoGrupo.style.display = "flex";
+      grupo.required = true;
+    }
+  });
+
+  /* ENVIAR A WHATSAPP */
   form.addEventListener("submit", e => {
     e.preventDefault();
 
-const apellidos = form.elements[0].value;
-const nombres = form.elements[1].value;
-const dur = duracion.value;
-const freq = frecuencia.value;
-const grp = grupo.value || "No aplica";
-const universidad = form.elements[form.elements.length - 2].value;
+    const apellidos = form.elements[0].value;
+    const nombres = form.elements[1].value;
+    const universidad = form.elements[form.elements.length - 2].value;
 
-form.addEventListener("submit", e => {
-  e.preventDefault();
-
-  const apellidos = form.elements[0].value;
-  const nombres = form.elements[1].value;
-  const dur = duracion.value;
-  const freq = frecuencia.value;
-  const grp = grupo.value || "No aplica";
-  const universidad = form.elements[form.elements.length - 2].value;
-
-  const mensaje =
+    const mensaje =
 `INSCRIPCIÓN CLASES VIRTUALES
 Apellidos: ${apellidos}
 Nombres: ${nombres}
-Duración: ${dur}
-Frecuencia: ${freq}
-Grupo: ${grp}
+Duración: ${duracion.value}
+Frecuencia: ${frecuencia.value}
+Grupo: ${grupo.value || "No aplica"}
 Universidad: ${universidad}`;
 
-  window.open(
-    "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
-    "_blank"
-  );
-});
-
+    window.open(
+      "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
+      "_blank"
+    );
   });
-// MODAL HORARIOS
-const imgHorarios = document.getElementById("imgHorarios");
-const modalImagen = document.getElementById("modalImagen");
 
-imgHorarios.addEventListener("click", () => {
-  modalImagen.classList.add("active");
-});
-
-modalImagen.addEventListener("click", (e) => {
-  if (e.target === modalImagen) {
-    modalImagen.classList.remove("active");
-  }
-});
-    // Abrir modal
-btnInscripcion.addEventListener("click", () => {
-  modal.classList.add("active");
-});
-
-// Cerrar modal con la "✕"
-closeBtn.addEventListener("click", () => {
-  modal.classList.remove("active");
 });
 </script>
+
     <!-- MODAL IMAGEN HORARIOS -->
 <div id="modalImagen" class="modal">
   <img 
