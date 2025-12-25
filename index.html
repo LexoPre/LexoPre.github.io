@@ -573,25 +573,6 @@ metodoPago.addEventListener("change", () => {
   }
 });
 
-  if (duracion.value !== "Clase" && frecuencia.value !== "") {
-    campoGrupo.style.display = "flex";
-    grupo.required = true;
-  } else {
-    campoGrupo.style.display = "none";
-    grupo.required = false;
-  }
-});
-
-  // Abrir modal
- btnInscripcion.addEventListener("click", () => {
-  modal.classList.add("active");
-});
-
-// Cerrar modal con la "✕"
-closeBtn.addEventListener("click", () => {
-  modal.classList.remove("active");
-});
-
   btnsMatricula.forEach(btn => {
     btn.addEventListener("click", () => {
       modal.classList.add("active");
@@ -638,6 +619,14 @@ modalImagen.addEventListener("click", (e) => {
     modalImagen.classList.remove("active");
   }
 });
+    // Abrir modal
+btnInscripcion.addEventListener("click", () => {
+  modal.classList.add("active");
+});
+
+// Cerrar modal con la "✕"
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("active");
 });
 </script>
     <!-- MODAL IMAGEN HORARIOS -->
