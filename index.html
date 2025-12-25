@@ -320,23 +320,6 @@ header h2 {
 </header>
 
 <main class="container">
-<div class="card">
-  <h2>Método de pago</h2>
-  <p>
-    <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Yape.jpg"
-         style="height:22px;border-radius:6px;vertical-align:middle;">
-    Yape
-    <br><br>
-    <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/BCP.jpg"
-         style="height:22px;border-radius:6px;vertical-align:middle;">
-    Transferencia BCP
-  </p>
-</div>
-
-<div class="card">
-  <h2>Contacto</h2>
-  <p>📱 943356235</p>
-</div>
 
 <div class="card">
 <h2>Ingresa a cualquier universidad</h2>
@@ -355,7 +338,22 @@ header h2 {
 </div>
 
 <div class="card">
-  <h2>Costos y horarios</h2>
+  <h2>Método de pago</h2>
+  <p>
+    <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Yape.jpg"
+         style="height:22px;border-radius:8px;vertical-align:middle;">
+    Yape
+    <br><br>
+    <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/BCP.jpg"
+         style="height:22px;border-radius:8px;vertical-align:middle;">
+    Transferencia en BCP
+  </p>
+</div>
+
+<div class="card">
+  <h2>Contacto</h2>
+  <p>📱 <b>943356235</b></p>
+</div>
 
   <img 
     src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Horarios.jpg"
@@ -424,19 +422,20 @@ header h2 {
         <input type="date" required>
       </div>
 <div class="campo">
-  <label>Precio total</label>
-    <div class="campo">
   <label>Método de pago</label>
   <select id="metodoPago" required>
     <option value="">Seleccionar</option>
     <option value="Yape">Yape</option>
-    <option value="BCP">Transferencia BCP</option>
+    <option value="BCP">Transferencia en BCP</option>
   </select>
 </div>
 
-<div id="infoPago" style="display:none; margin-top:15px;"></div>
+<div class="campo">
+  <label>Precio total</label>
   <input type="text" id="precioTotal" readonly>
 </div>
+
+<div id="infoPago" style="display:none; margin-top:15px;"></div>
 
       <button type="submit" class="btn-enviar">Inscribirme</button>
     </form>
