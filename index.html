@@ -393,9 +393,9 @@ header h2 {
   </select>
 </div>
 
-<div class="campo">
+<div class="campo" id="campoFrecuencia" style="display:none;">
   <label>Frecuencia</label>
-  <select id="frecuencia" required disabled>
+  <select id="frecuencia" required>
     <option value="">Seleccionar</option>
   </select>
 </div>
@@ -417,10 +417,6 @@ header h2 {
         <input type="text" required>
       </div>
 
-      <div class="campo">
-        <label>Fecha de postulación</label>
-        <input type="date" required>
-      </div>
 <div class="campo">
   <label>Método de pago</label>
   <select id="metodoPago" required>
@@ -430,12 +426,9 @@ header h2 {
   </select>
 </div>
 
-<div class="campo">
-  <label>Precio total</label>
-  <input type="text" id="precioTotal" readonly>
-</div>
-
-<div id="infoPago" style="display:none; margin-top:15px;"></div>
+<div id="precioTotal" style="font-weight:bold; margin-top:10px;"></div>
+        
+<div id="infoPago" style="display:none; margin-top:15px; padding-bottom:80px;"></div>
 
       <button type="submit" class="btn-enviar">Inscribirme</button>
     </form>
@@ -468,11 +461,14 @@ const precioTotal = document.getElementById("precioTotal");
 const metodoPago = document.getElementById("metodoPago");
 const infoPago = document.getElementById("infoPago");
 
+const campoFrecuencia = document.getElementById("campoFrecuencia");
+
 duracion.addEventListener("change", () => {
+  campoFrecuencia.style.display = "flex";
   frecuencia.innerHTML = '<option value="">Seleccionar</option>';
-  frecuencia.disabled = false;
   campoGrupo.style.display = "none";
   grupo.required = false;
+  document.getElementById("precioTotal").innerText = "";
 
   if (duracion.value === "Clase") {
     frecuencia.innerHTML += `
@@ -490,7 +486,36 @@ duracion.addEventListener("change", () => {
 });
 
 frecuencia.addEventListener("change", () => {
-    function calcularPrecio() {
+    frecuencia.addEventListener("change", () => {
+  let precio = "";
+
+  if (duracion.value === "Ciclo") {
+    if (frecuencia.value.includes("5")) precio = "Precio total: S/ 250";
+    else if (frecuencia.value.includes("3")) precio = "Precio total: S/ 200";
+    else precio = "Precio total: S/ 180";
+  }
+
+  if (duracion.value === "Mes") {
+    if (frecuencia.value.includes("5")) precio = "Precio total: S/ 150";
+    else if (frecuencia.value.includes("3")) precio = "Precio total: S/ 100";
+    else precio = "Precio total: S/ 80";
+  }
+
+  if (duracion.value === "Semana") {
+    if (frecuencia.value.includes("5")) precio = "Precio total: S/ 50";
+    else if (frecuencia.value.includes("3")) precio = "Precio total: S/ 30";
+    else precio = "Precio total: S/ 20";
+  }
+
+  if (duracion.value === "Clase") {
+    if (frecuencia.value.includes("3")) precio = "Precio total: S/ 20";
+    else if (frecuencia.value.includes("2")) precio = "Precio total: S/ 15";
+    else precio = "Precio total: S/ 10";
+  }
+
+  document.getElementById("precioTotal").innerText = precio;
+});
+    
   let precio = "";
 
   if (duracion.value === "Ciclo") {
