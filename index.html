@@ -510,6 +510,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 /* LÓGICA DE MÉTODOS DE PAGO */
+  const metodoPago = document.getElementById("metodoPago");
+  const infoPago = document.getElementById("infoPago");
+
+  metodoPago.addEventListener("change", () => {
+    infoPago.style.display = "block";
+    infoPago.style.paddingBottom = "20px";
+
+    if (metodoPago.value === "Yape") {
+      const linkYape = "https://app.yape.com.pe/descargar-yape?rb.routing.mode=proxy&rb.routing.signature=826666&source=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb3V0ZSI6Imh0dHBzOi8vYXBwLnlhcGUuY29tLnBlL2Rlc2Nhcmdhci15YXBlIiwic3dpdGNoIjp7ImlvcyI6eyJhcHAiOiJhcHBhYTBmZDliYTI0M2VmYTY3OTI0ZGQwODM0YTQ3MiIsInN0b3JlIjoic3RvcmUwZmQ5YmEyNDNlZmE2NzkyNGRkMDgzNGE0NzIiLCJ1cmkiOiJ5YXBlOi8vIiwiaW50ZW50Ijp7InNjaGVtZSI6InlhcGU6Ly8iLCJwYWNrYWdlIjoieWFwZSJ9fSwiYW5kcm9pZCI6eyJhcHAiOiJhcHA5ZDBjM2FiM2E0MjY3YTZhZjJmMDQ0YTBiOTNlNyIsInN0b3JlIjoic3RvcmUwYzNhYjNhNDI2N2E2YWYyZjA0NGEwYjkzZTciLCJ1cmkiOiJ5YXBlOi8vIiwiaW50ZW50Ijp7InNjaGVtZSI6InlhcGU6Ly8iLCJwYWNrYWdlIjoieWFwZSJ9fX0sIm1hdGNoIjp7Im9zIjoid2luZG93cyJ9LCJpYXQiOjE3NjY2ODQ0NzgsImV4cCI6MTc2NjY4NDc3OH0.d3Mx67MlZVdNgHRMR7sFnYLjODJIwsTFjpbRe7SQ3E0";
+      
+      infoPago.innerHTML = `
+        <div class="info-pago-texto">
+          <a href="${linkYape}" target="_blank" style="text-decoration:none; color:inherit; font-weight:bold;">
+            <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Yape.jpg" style="height:40px; vertical-align:middle;"> 
+            Yape: 943356235
+          </a>
+          <br>
+          <a href="${linkYape}" target="_blank" class="btn-pago-app btn-yape-app">Abrir Yape</a>
+          Envíe la captura Yape al número <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a> por WhatsApp
+        </div>
+      `;
+    } else if (metodoPago.value === "BCP") {
+      const linkBCP = "https://onelink.to/bcpapp";
+
+      infoPago.innerHTML = `
+        <div class="info-pago-texto">
+          <strong>Transferencia</strong><br>
+          Cuenta: 19192984638074<br>
+          CCI: 00219119298463807458<br>
+          A nombre de: Pedro Pablo Muñoz López
+          <a href="${linkBCP}" target="_blank" class="btn-pago-app btn-bcp-app">Abrir BCP</a>
+          Compartir recibo de transferencia a <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a>
+        </div>
+      `;
+    } else {
+      infoPago.style.display = "none";
+    }
+  });
  /* ENVIAR A WHATSAPP */
   form.addEventListener("submit", e => {
     e.preventDefault();
