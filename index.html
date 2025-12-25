@@ -589,7 +589,6 @@ const dur = duracion.value;
 const freq = frecuencia.value;
 const grp = grupo.value || "No aplica";
 const universidad = form.elements[form.elements.length - 2].value;
-const fecha = form.elements[form.elements.length - 1].value;
 
 const mensaje =
 `INSCRIPCIÓN CLASES VIRTUALES
@@ -599,7 +598,6 @@ Duración: ${dur}
 Frecuencia: ${freq}
 Grupo: ${grp}
 Universidad: ${universidad}
-Fecha de postulación: ${fecha}`;
 
     window.open(
       "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
