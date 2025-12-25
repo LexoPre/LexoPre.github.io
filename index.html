@@ -520,24 +520,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (metodoPago.value === "Yape") {
       infoPago.innerHTML = `
         <div class="info-pago-texto">
-          <a href="yape://" style="text-decoration:none; color:inherit; font-weight:bold;">
+          <a href="https://app.yape.com.pe/descargar-yape" target="_blank" style="text-decoration:none; color:inherit; font-weight:bold;">
             <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Yape.jpg" style="height:20px; vertical-align:middle;"> 
             Yape: 943356235
           </a>
           <br>
-          <a href="yape://" class="btn-pago-app btn-yape-app">Abrir Yape</a>
-          Envíe la captura Yape al número <a href="https://wa.me/51943356235" class="link-ws">943356235</a> por WhatsApp
+          <a href="https://app.yape.com.pe/descargar-yape" target="_blank" class="btn-pago-app btn-yape-app">Abrir Yape</a>
+          Envíe la captura Yape al número <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a> por WhatsApp
         </div>
       `;
     } else if (metodoPago.value === "BCP") {
       infoPago.innerHTML = `
         <div class="info-pago-texto">
-          <strong>Transferencia en BCP</strong><br>
+          <strong>Transferencia</strong><br>
           Cuenta: 19192984638074<br>
           CCI: 00219119298463807458<br>
           A nombre de: Pedro Pablo Muñoz López
-          <a href="bcp://タップ" class="btn-pago-app btn-bcp-app">Abrir BCP</a>
-          Compartir recibo de transferencia a <a href="https://wa.me/51943356235" class="link-ws">943356235</a>
+          <a href="https://play.google.com/store/search?q=bcp&c=apps&hl=es_PE" target="_blank" class="btn-pago-app btn-bcp-app">Abrir BCP</a>
+          Compartir recibo de transferencia a <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a>
         </div>
       `;
     } else {
