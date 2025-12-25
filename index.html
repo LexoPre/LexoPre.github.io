@@ -570,22 +570,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* ENVIAR A WHATSAPP */
+ /* ENVIAR A WHATSAPP */
   form.addEventListener("submit", e => {
     e.preventDefault();
 
     const apellidos = form.elements[0].value;
     const nombres = form.elements[1].value;
-    const universidad = form.elements[form.elements.length - 2].value;
+    const uniVal = form.elements[5].value; // Índice corregido para Universidad
+    const precioTexto = precioTotal.innerText;
 
-    const mensaje =
+    let mensaje = 
 `INSCRIPCIÓN CLASES VIRTUALES
 Apellidos: ${apellidos}
 Nombres: ${nombres}
 Duración: ${duracion.value}
-Frecuencia: ${frecuencia.value}
-Grupo: ${grupo.value || "No aplica"}
-Universidad: ${universidad}`;
+Frecuencia: ${frecuencia.value}`;
+
+    // Solo agrega el Grupo si no es una "Clase" y si hay un valor seleccionado
+    if (duracion.value !== "Clase" && grupo.value) {
+      mensaje += `\nGrupo: ${grupo.value}`;
+    }
+
+    mensaje += `\nUniversidad: ${uniVal}`;
+    mensaje += `\n${precioTexto}`;
+    mensaje += `\nMétodo de pago: ${metodoPago.value}`;
 
     window.open(
       "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
