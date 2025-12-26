@@ -18,6 +18,71 @@
     <meta name="robots" content="index, follow">
 
     <style>
+        /* ===== MODO OSCURO DEFINITIVO ===== */
+@media (prefers-color-scheme: dark) {
+
+  /* FONDO GENERAL */
+  body,
+  header,
+  .card,
+  .modal-content {
+    background-color: #353535 !important;
+  }
+
+  /* TEXTO GENERAL BLANCO */
+  body,
+  p,
+  span,
+  div,
+  li,
+  label,
+  input,
+  select,
+  .docente,
+  header h2 {
+    color: #ffffff !important;
+  }
+
+  /* TÍTULOS AZULES SE MANTIENEN */
+  h1,
+  .card h2,
+  .btn,
+  a {
+    color: #1857FF !important;
+  }
+
+  /* UNIVERSIDADES → TEXTO BLANCO */
+  .uni-tag {
+    color: #ffffff !important;
+    background: #1857FF !important; /* azul limpio */
+  }
+
+  /* SOMBRAS INVERTIDAS (CLARAS) */
+  .card,
+  .modal-content,
+  #shareBtn {
+    box-shadow: 0 1px 6px rgba(255,255,255,0.25) !important;
+  }
+
+  /* INPUTS */
+  input,
+  select {
+    background-color: #2b2b2b !important;
+    border: 1px solid #666 !important;
+    color: #ffffff !important;
+  }
+
+  /* BOTÓN SHARE */
+  #shareBtn {
+    background: #353535 !important;
+    color: #ffffff !important;
+  }
+
+  /* OVERLAY MODAL */
+  .modal {
+    background: rgba(0,0,0,0.75);
+  }
+}
         /* ===== MODO OSCURO GLOBAL ===== */
 @media (prefers-color-scheme: dark) {
 
