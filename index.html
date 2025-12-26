@@ -18,139 +18,7 @@
     <meta name="robots" content="index, follow">
 
     <style>
-        /* ===== UNIVERSIDADES BLANCAS EN MODO OSCURO ===== */
-@media (prefers-color-scheme: dark) {
-
-  .uni-tag {
-    background: #ffffff !important;   /* FONDO BLANCO */
-    color: #353535 !important;        /* TEXTO OSCURO */
-    box-shadow: 0 2px 8px rgba(255,255,255,0.35) !important;
-    font-weight: 900;
-  }
-
-}
-        /* ===== MODO OSCURO DEFINITIVO ===== */
-@media (prefers-color-scheme: dark) {
-
-  /* FONDO GENERAL */
-  body,
-  header,
-  .card,
-  .modal-content {
-    background-color: #353535 !important;
-  }
-
-  /* TEXTO GENERAL BLANCO */
-  body,
-  p,
-  span,
-  div,
-  li,
-  label,
-  input,
-  select,
-  .docente,
-  header h2 {
-    color: #ffffff !important;
-  }
-
-  /* TÍTULOS AZULES SE MANTIENEN */
-  h1,
-  .card h2,
-  .btn,
-  a {
-    color: #1857FF !important;
-  }
-
-  /* UNIVERSIDADES → TEXTO BLANCO */
-  .uni-tag {
-    color: #ffffff !important;
-    background: #1857FF !important; /* azul limpio */
-  }
-
-  /* SOMBRAS INVERTIDAS (CLARAS) */
-  .card,
-  .modal-content,
-  #shareBtn {
-    box-shadow: 0 1px 6px rgba(255,255,255,0.25) !important;
-  }
-
-  /* INPUTS */
-  input,
-  select {
-    background-color: #2b2b2b !important;
-    border: 1px solid #666 !important;
-    color: #ffffff !important;
-  }
-
-  /* BOTÓN SHARE */
-  #shareBtn {
-    background: #353535 !important;
-    color: #ffffff !important;
-  }
-
-  /* OVERLAY MODAL */
-  .modal {
-    background: rgba(0,0,0,0.75);
-  }
-}
-        /* ===== MODO OSCURO GLOBAL ===== */
-@media (prefers-color-scheme: dark) {
-
-  /* Fondo general */
-  body,
-  header,
-  .card,
-  .modal-content {
-    background-color: #353535 !important;
-  }
-
-  /* Texto general BLANCO */
-  body,
-  p,
-  span,
-  div,
-  li,
-  label,
-  input,
-  select,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: #ffffff !important;
-  }
-
-  /* Mantener AZUL (no se vuelve blanco) */
-  h1,
-  .card h2,
-  .btn,
-  a,
-  .uni-tag {
-    color: #1857FF !important;
-  }
-
-  /* Inputs y selects */
-  input,
-  select {
-    background-color: #2b2b2b !important;
-    border: 1px solid #555 !important;
-    color: #ffffff !important;
-  }
-
-  /* Modal overlay */
-  .modal {
-    background: rgba(0,0,0,0.7);
-  }
-}
-        /* IMAGEN PANTALLA COMPLETA */
-.img-full {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 20px;
-}
+      
         /* IMAGEN HORARIOS */
 .img-horarios {
     width: 100%;
@@ -242,14 +110,6 @@
 }
 
         /* ===== TEXTO CLARO / OSCURO PERSONALIZADO ===== */
-
-/* MODO CLARO */
-.docente,
-header h2,
-.card h2,
-.card ul li {
-    color: #0D0D0D;
-}
 
 /* MODO OSCURO */
 @media (prefers-color-scheme: dark) {
@@ -467,19 +327,41 @@ header h2 {
 ========================= */
 @media (prefers-color-scheme: dark) {
 
-  /* Yape / Transferencia / Teléfono */
-  .card p,
-  .info-pago-texto,
-  .info-pago-texto a,
-  .info-pago-texto strong {
-    color: #ffffff !important;
+  body,
+  header,
+  .card,
+  .modal-content {
+    background-color: #353535;
+    color: #ffffff;
   }
 
-  /* UNIVERSIDADES QUE SE NOTEN */
+  h1,
+  .card h2,
+  a,
+  .btn {
+    color: #1857FF;
+  }
+
+  input,
+  select {
+    background-color: #2b2b2b;
+    border: 1px solid #666;
+    color: #ffffff;
+  }
+
+  .modal {
+    background: rgba(0,0,0,0.75);
+  }
+
   .uni-tag {
-    background: #ffffff !important;
-    color: #000000 !important;
-    font-weight: 900 !important;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 900;
+  }
+
+  #shareBtn {
+    background: #353535;
+    color: #ffffff;
   }
 }
 
@@ -775,23 +657,6 @@ Frecuencia: ${frecuencia.value}`;
   >
 </div>
     <script>
-(function () {
-  // Ensucia el historial
-  history.pushState({}, "", location.href);
-  history.pushState({}, "", location.href);
-
-  // Si intenta volver, lo mandamos a la misma página
-  window.addEventListener("popstate", function () {
-    window.location.href = location.href;
-  });
-
-  // Si el navegador usa cache (back/forward)
-  window.addEventListener("pageshow", function (event) {
-    if (event.persisted) {
-      window.location.reload();
-    }
-  });
-})();
 </script>
 </body>
 </html>
