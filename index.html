@@ -18,6 +18,57 @@
     <meta name="robots" content="index, follow">
 
     <style>
+        /* ===== MODO OSCURO GLOBAL ===== */
+@media (prefers-color-scheme: dark) {
+
+  /* Fondo general */
+  body,
+  header,
+  .card,
+  .modal-content {
+    background-color: #353535 !important;
+  }
+
+  /* Texto general BLANCO */
+  body,
+  p,
+  span,
+  div,
+  li,
+  label,
+  input,
+  select,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #ffffff !important;
+  }
+
+  /* Mantener AZUL (no se vuelve blanco) */
+  h1,
+  .card h2,
+  .btn,
+  a,
+  .uni-tag {
+    color: #1857FF !important;
+  }
+
+  /* Inputs y selects */
+  input,
+  select {
+    background-color: #2b2b2b !important;
+    border: 1px solid #555 !important;
+    color: #ffffff !important;
+  }
+
+  /* Modal overlay */
+  .modal {
+    background: rgba(0,0,0,0.7);
+  }
+}
         /* IMAGEN PANTALLA COMPLETA */
 .img-full {
     max-width: 90%;
@@ -167,13 +218,6 @@ body {
     color: #1857FF;
     font-size: 20px;
     overflow-x: hidden;
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #e0e0e0;
-        color: #1857FF;
-    }
 }
 
 header {
