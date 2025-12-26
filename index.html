@@ -444,6 +444,45 @@ header h2 {
     text-decoration: underline;
     font-weight: bold;
 }
+        /* =========================
+   AJUSTE FINAL VISIBILIDAD
+   (NO BORRA NADA EXISTENTE)
+========================= */
+
+/* MODO CLARO */
+.card p,
+.info-pago-texto,
+.info-pago-texto a,
+.info-pago-texto strong {
+  color: #0D0D0D !important;
+}
+
+/* UNIVERSIDADES MODO CLARO */
+.uni-tag {
+  color: #ffffff !important;
+}
+
+/* =========================
+   MODO OSCURO
+========================= */
+@media (prefers-color-scheme: dark) {
+
+  /* Yape / Transferencia / Teléfono */
+  .card p,
+  .info-pago-texto,
+  .info-pago-texto a,
+  .info-pago-texto strong {
+    color: #ffffff !important;
+  }
+
+  /* UNIVERSIDADES QUE SE NOTEN */
+  .uni-tag {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-weight: 900 !important;
+  }
+}
+
     </style>
 </head>
 
