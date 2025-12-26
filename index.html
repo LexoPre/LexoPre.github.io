@@ -764,7 +764,26 @@ Frecuencia: ${frecuencia.value}`;
       "_blank"
     );
   });
+/* LÓGICA DEL BOTÓN COMPARTIR */
+  const shareBtn = document.getElementById('shareBtn');
 
+  shareBtn.addEventListener('click', async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'LexoPre - Clases de Lenguaje',
+          text: 'Prepárate con las mejores clases de Lenguaje virtuales.',
+          url: window.location.href
+        });
+      } catch (err) {
+        console.log('Error al compartir:', err);
+      }
+    } else {
+      // Fallback: Si el navegador no soporta compartir, copia el link
+      navigator.clipboard.writeText(window.location.href);
+      alert('Enlace copiado al portapapeles');
+    }
+  });
 });
 </script>
 
