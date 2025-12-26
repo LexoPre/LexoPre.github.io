@@ -182,12 +182,11 @@ header h2,
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: white;
+    background: white; /* ← ELIMINA ESTA LÍNEA */
     color: #1857FF;
     font-size: 20px;
     overflow-x: hidden;
 }
-
 @media (prefers-color-scheme: dark) {
     body {
         background: #e0e0e0;
@@ -352,6 +351,31 @@ header h2 {
 @media (prefers-color-scheme: dark) {
     .card p, .card b, .card h2 {
         color: #FFFFFF !important; /* Blanco puro */
+    }
+}
+        /* CONFIGURACIÓN PARA MODO OSCURO */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0d0d0d !important; /* Fondo casi negro */
+        color: #FFFFFF !important;
+    }
+
+    /* Los recuadros (tarjetas) en el gris que pediste */
+    .card {
+        background-color: #262626 !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Forzar textos en blanco dentro de las tarjetas */
+    .card h2, .card p, .card b, .card ul li, label {
+        color: #FFFFFF !important;
+    }
+
+    /* Ajuste para que el formulario se vea bien en oscuro */
+    input, select {
+        background-color: #333333 !important;
+        color: white !important;
+        border: 1px solid #444 !important;
     }
 }
     </style>
