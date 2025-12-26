@@ -15,7 +15,17 @@
     <meta name="keywords" content="Clases virtuales de lenguaje, academia LEXO">
     <meta name="author" content="LEXO - Pedro Muñoz">
     <meta name="robots" content="index, follow">
+/* Color para MODO CLARO (por defecto) */
+.card p, .card b {
+    color: #262626;
+}
 
+/* Color para MODO OSCURO */
+@media (prefers-color-scheme: dark) {
+    .card p, .card b, .card h2 {
+        color: #FFFFFF; /* Blanco puro */
+    }
+}
     <style>
         /* IMAGEN PANTALLA COMPLETA */
 .img-full {
