@@ -324,6 +324,17 @@ header h2 {
     text-decoration: underline;
     font-weight: bold;
 }
+        /* Esto controla el color de los textos en las tarjetas informativas */
+.card p, .card b {
+    color: #262626; /* Color para modo claro */
+}
+
+/* Esto se activa automáticamente en celulares con modo oscuro */
+@media (prefers-color-scheme: dark) {
+    .card p, .card b, .card h2 {
+        color: #FFFFFF !important; /* Blanco puro */
+    }
+}
     </style>
 </head>
 
