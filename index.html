@@ -124,13 +124,32 @@ header h2,
     color: #0D0D0D;
 }
 
-/* MODO OSCURO */
+/* CONFIGURACIÓN PARA MODO OSCURO */
 @media (prefers-color-scheme: dark) {
-    .docente,
-    header h2,
-    .card h2,
-    .card ul li {
+    body {
+        background-color: #0d0d0d; /* Fondo un poco más oscuro que el negro estándar */
         color: #FFFFFF;
+    }
+
+    /* Los recuadros (tarjetas) ahora serán #262626 */
+    .card {
+        background-color: #262626 !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más fuerte para que resalten */
+    }
+
+    /* Textos dentro de los recuadros en blanco puro */
+    .card h2, 
+    .card p, 
+    .card b,
+    label {
+        color: #FFFFFF !important;
+    }
+
+    /* Ajuste para los campos del formulario en modo oscuro */
+    input, select {
+        background-color: #333333;
+        color: white;
+        border: 1px solid #444;
     }
 }
         
