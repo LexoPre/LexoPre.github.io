@@ -124,32 +124,13 @@ header h2,
     color: #0D0D0D;
 }
 
-/* CONFIGURACIÓN PARA MODO OSCURO */
+/* MODO OSCURO */
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #0d0d0d; /* Fondo un poco más oscuro que el negro estándar */
+    .docente,
+    header h2,
+    .card h2,
+    .card ul li {
         color: #FFFFFF;
-    }
-
-    /* Los recuadros (tarjetas) ahora serán #303030 */
-    .card {
-        background-color: #303030 !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más fuerte para que resalten */
-    }
-
-    /* Textos dentro de los recuadros en blanco puro */
-    .card h2, 
-    .card p, 
-    .card b,
-    label {
-        color: #FFFFFF !important;
-    }
-
-    /* Ajuste para los campos del formulario en modo oscuro */
-    input, select {
-        background-color: #333333;
-        color: white;
-        border: 1px solid #444;
     }
 }
         
@@ -182,10 +163,12 @@ header h2,
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background: white;
     color: #1857FF;
     font-size: 20px;
     overflow-x: hidden;
 }
+
 @media (prefers-color-scheme: dark) {
     body {
         background: #e0e0e0;
@@ -340,42 +323,6 @@ header h2 {
     color: #25D366;
     text-decoration: underline;
     font-weight: bold;
-}
-        /* Esto controla el color de los textos en las tarjetas informativas */
-.card p, .card b {
-    color: #303030; /* Color para modo claro */
-}
-
-/* Esto se activa automáticamente en celulares con modo oscuro */
-@media (prefers-color-scheme: dark) {
-    .card p, .card b, .card h2 {
-        color: #FFFFFF !important; /* Blanco puro */
-    }
-}
-        /* CONFIGURACIÓN PARA MODO OSCURO */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #0d0d0d !important; /* Fondo casi negro */
-        color: #FFFFFF !important;
-    }
-
-    /* Los recuadros (tarjetas) en el gris que pediste */
-    .card {
-        background-color: #303030 !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
-    }
-
-    /* Forzar textos en blanco dentro de las tarjetas */
-    .card h2, .card p, .card b, .card ul li, label {
-        color: #FFFFFF !important;
-    }
-
-    /* Ajuste para que el formulario se vea bien en oscuro */
-    input, select {
-        background-color: #333333 !important;
-        color: white !important;
-        border: 1px solid #444 !important;
-    }
 }
     </style>
 </head>
