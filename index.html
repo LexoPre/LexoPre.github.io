@@ -655,13 +655,23 @@ document.addEventListener("DOMContentLoaded", () => {
     grupo.required = false;
     precioTotal.innerText = "";
 
-    if (duracion.value === "Clase") {
+   if (duracion.value === "Clase") {
         document.getElementById("labelFrecuencia").innerText = "Tiempo";
-  frecuencia.innerHTML += `
-    <option>1 hora</option>
-    <option>2 horas</option>
-    <option>3 horas</option>
-  `;
+        frecuencia.innerHTML += `
+            <option>1 hora</option>
+            <option>2 horas</option>
+            <option>3 horas</option>
+        `;
+        document.getElementById("seccionHoraEspecial").style.display = "block";
+    } else {
+        document.getElementById("labelFrecuencia").innerText = "Frecuencia";
+        document.getElementById("seccionHoraEspecial").style.display = "none";
+        frecuencia.innerHTML += `
+            <option>Diario (5 días)</option>
+            <option>Interdiario (3 días)</option>
+            <option>Interdiario (2 días)</option>
+        `;
+    }
 
   // MOSTRAR TEXTO
   document.getElementById("notaClase").style.display = "block";
