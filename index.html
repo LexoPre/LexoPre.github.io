@@ -659,41 +659,28 @@ document.addEventListener("DOMContentLoaded", () => {
     grupo.required = false;
     precioTotal.innerText = "";
 
-   if (duracion.value === "Clase") {
+    if (duracion.value === "Clase") {
   frecuencia.innerHTML += `
     <option>1 hora</option>
     <option>2 horas</option>
     <option>3 horas</option>
   `;
 
+  // MOSTRAR TEXTO
   document.getElementById("notaClase").style.display = "block";
-} else {
-document.getElementById("notaClase").style.display = "none";
-
-  // TEXTO ABAJO DE FRECUENCIA
-  let nota = document.getElementById("notaClase");
-  if (!nota) {
-    nota = document.createElement("div");
-    nota.id = "notaClase";
-    nota.innerText = "Coordinar hora con el docente.";
-   nota.style.fontSize = "0.9rem";
-nota.style.marginTop = "6px";
-nota.style.fontStyle = "italic";
-nota.style.width = "100%";        // 👈 CLAVE
-campoFrecuencia.appendChild(nota);
-  }
 
 } else {
-  // Quitar el texto si cambia de duración
-  const notaExistente = document.getElementById("notaClase");
-  if (notaExistente) notaExistente.remove();
 
-      frecuencia.innerHTML += `
-        <option>Diario (5 días)</option>
-        <option>Interdiario (3 días)</option>
-        <option>Interdiario (2 días)</option>
-      `;
-    }
+  // OCULTAR TEXTO
+  document.getElementById("notaClase").style.display = "none";
+
+  frecuencia.innerHTML += `
+    <option>Diario (5 días)</option>
+    <option>Interdiario (3 días)</option>
+    <option>Interdiario (2 días)</option>
+  `;
+}
+
   });
 
   frecuencia.addEventListener("change", () => {
