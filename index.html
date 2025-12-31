@@ -481,6 +481,36 @@ header h2 {
     font-weight: bold;
   }
 }
+/* ===== AJUSTES TEXTO MODO CLARO ===== */
+
+/* Número de contacto */
+.card a[href^="tel"] {
+  color: #0D0D0D !important;
+}
+
+/* Texto métodos de pago */
+.card p,
+.info-pago-texto,
+.info-pago-texto strong,
+.info-pago-texto a {
+  color: #0D0D0D !important;
+}
+        @media (prefers-color-scheme: dark) {
+
+  /* Número de contacto */
+  .card a[href^="tel"] {
+    color: #ffffff !important;
+  }
+
+  /* Texto métodos de pago */
+  .card p,
+  .info-pago-texto,
+  .info-pago-texto strong,
+  .info-pago-texto a {
+    color: #ffffff !important;
+  }
+
+}
 
     </style>
 </head>
