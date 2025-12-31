@@ -579,7 +579,7 @@ header h2 {
     <label>Hora</label>
     <input type="text" id="inputHora" placeholder="Ej: 9:00 am">
   </div>
-  <div id="errorHora" style="color: red; font-size: 0.8rem; display: none; margin-bottom: 10px; text-align: right;">
+  <div id="errorHora" style="color: red; font-size: 0.8rem; display: none; margin-bottom: 10px; text-align: right; font-weight: bold;">
     Horario no disponible
   </div>
   <div style="font-size:0.9rem; font-style:italic; margin-bottom:14px;">
@@ -657,38 +657,22 @@ document.addEventListener("DOMContentLoaded", () => {
     precioTotal.innerText = "";
 
     if (duracion.value === "Clase") {
-        document.getElementById("labelFrecuencia").innerText = "Tiempo";
-        frecuencia.innerHTML += `
-            <option>1 hora</option>
-            <option>2 horas</option>
-            <option>3 horas</option>
-        `;
-        document.getElementById("seccionHoraEspecial").style.display = "block";
+      document.getElementById("labelFrecuencia").innerText = "Tiempo";
+      frecuencia.innerHTML += `
+        <option>1 hora</option>
+        <option>2 horas</option>
+        <option>3 horas</option>
+      `;
+      document.getElementById("seccionHoraEspecial").style.display = "block";
     } else {
-        document.getElementById("labelFrecuencia").innerText = "Frecuencia";
-        document.getElementById("seccionHoraEspecial").style.display = "none";
-        frecuencia.innerHTML += `
-            <option>Diario (5 días)</option>
-            <option>Interdiario (3 días)</option>
-            <option>Interdiario (2 días)</option>
-        `;
+      document.getElementById("labelFrecuencia").innerText = "Frecuencia";
+      document.getElementById("seccionHoraEspecial").style.display = "none";
+      frecuencia.innerHTML += `
+        <option>Diario (5 días)</option>
+        <option>Interdiario (3 días)</option>
+        <option>Interdiario (2 días)</option>
+      `;
     }
-
-  // MOSTRAR TEXTO
-  document.getElementById("notaClase").style.display = "block";
-
-} else {
-document.getElementById("labelFrecuencia").innerText = "Frecuencia";
-
-  // OCULTAR TEXTO
-  document.getElementById("notaClase").style.display = "none";
-
-  frecuencia.innerHTML += `
-    <option>Diario (5 días)</option>
-    <option>Interdiario (3 días)</option>
-    <option>Interdiario (2 días)</option>
-  `;
-}
 
   });
 
@@ -739,14 +723,14 @@ document.getElementById("labelFrecuencia").innerText = "Frecuencia";
 
     const min = convertirAMinutos(valor);
     if (min !== null) {
-      const r1 = (min >= 480 && min <= 780);  // 8am - 1pm
-      const r2 = (min >= 900 && min <= 1080); // 3pm - 6pm
+      const r1 = (min >= 480 && min <= 780);  
+      const r2 = (min >= 900 && min <= 1080); 
       if (r1 || r2) {
         errorHora.style.display = "none";
-        inputHora.style.borderColor = "";
+        inputHora.style.color = ""; 
       } else {
         errorHora.style.display = "block";
-        inputHora.style.borderColor = "red";
+        inputHora.style.color = "red"; 
       }
     }
   });
@@ -794,7 +778,7 @@ document.getElementById("labelFrecuencia").innerText = "Frecuencia";
     const uniVal = form.elements[5].value; // Índice corregido para Universidad
     const precioTexto = precioTotal.innerText;
 
-  let mensaje = 
+   let mensaje = 
 `📚INSCRIPCIÓN A CLASES VIRTUALES
 Apellidos: ${apellidos}
 Nombres: ${nombres}
