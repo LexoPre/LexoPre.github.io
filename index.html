@@ -669,10 +669,11 @@ document.addEventListener("DOMContentLoaded", () => {
     nota = document.createElement("div");
     nota.id = "notaClase";
     nota.innerText = "Coordinar hora con el docente.";
-    nota.style.fontSize = "0.9rem";
-    nota.style.marginTop = "6px";
-    nota.style.fontStyle = "italic";
-    campoFrecuencia.appendChild(nota); // 👈 ABAJO del select
+   nota.style.fontSize = "0.9rem";
+nota.style.marginTop = "6px";
+nota.style.fontStyle = "italic";
+nota.style.width = "100%";        // 👈 CLAVE
+campoFrecuencia.appendChild(nota);
   }
 
 } else {
