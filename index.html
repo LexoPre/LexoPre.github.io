@@ -385,9 +385,17 @@ header h2 {
 /* MODO CLARO */
 .card p,
 .info-pago-texto,
-.info-pago-texto a,
 .info-pago-texto strong {
   color: #0D0D0D !important;
+}
+
+/* Enlaces en negro, EXCEPTO los botones de apps que deben ser blancos */
+.info-pago-texto a {
+  color: #0D0D0D !important;
+}
+
+.info-pago-texto a.btn-pago-app {
+  color: #ffffff !important;
 }
 
 /* UNIVERSIDADES MODO CLARO */
