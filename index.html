@@ -20,286 +20,12 @@
     <meta name="author" content="LEXO - Pedro Muñoz">
     <meta name="robots" content="index, follow">
 
-    <style>
-        /* ===== UNIVERSIDADES BLANCAS EN MODO OSCURO ===== */
-@media (prefers-color-scheme: dark) {
-
-  .uni-tag {
-    background: #ffffff !important;   /* FONDO BLANCO */
-    color: #353535 !important;        /* TEXTO OSCURO */
-    box-shadow: 0 2px 8px rgba(255,255,255,0.35) !important;
-    font-weight: 900;
-  }
-
-}
-        /* ===== MODO OSCURO DEFINITIVO ===== */
-@media (prefers-color-scheme: dark) {
-
-  /* FONDO GENERAL */
-  body,
-  header,
-  .card,
-  .modal-content {
-    background-color: #353535 !important;
-  }
-
-  /* TEXTO GENERAL BLANCO */
-  body,
-  p,
-  span,
-  div,
-  li,
-  label,
-  input,
-  select,
-  .docente,
-  header h2 {
-    color: #ffffff !important;
-  }
-
-  /* TÍTULOS AZULES SE MANTIENEN */
-  h1,
-  .card h2,
-  .btn,
-  a {
-    color: #1857FF !important;
-  }
-
-  /* UNIVERSIDADES → TEXTO BLANCO */
-  .uni-tag {
-    color: #ffffff !important;
-    background: #1857FF !important; /* azul limpio */
-  }
-
-  /* SOMBRAS INVERTIDAS (CLARAS) */
-  .card,
-  .modal-content,
-  #shareBtn {
-    box-shadow: 0 1px 6px rgba(255,255,255,0.25) !important;
-  }
-
-  /* INPUTS */
-  input,
-  select {
-    background-color: #2b2b2b !important;
-    border: 1px solid #666 !important;
-    color: #ffffff !important;
-  }
-
-  /* BOTÓN SHARE */
-  #shareBtn {
-    background: #353535 !important;
-    color: #ffffff !important;
-  }
-
-  /* OVERLAY MODAL */
-  .modal {
-    background: rgba(0,0,0,0.75);
-  }
-}
-        /* ===== MODO OSCURO GLOBAL ===== */
-@media (prefers-color-scheme: dark) {
-
-  /* Fondo general */
-  body,
-  header,
-  .card,
-  .modal-content {
-    background-color: #353535 !important;
-  }
-
-  /* Texto general BLANCO */
-  body,
-  p,
-  span,
-  div,
-  li,
-  label,
-  input,
-  select,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: #ffffff !important;
-  }
-
-  /* Mantener AZUL (no se vuelve blanco) */
-  h1,
-  .card h2,
-  .btn,
-  a,
-  .uni-tag {
-    color: #1857FF !important;
-  }
-
-  /* Inputs y selects */
-  input,
-  select {
-    background-color: #2b2b2b !important;
-    border: 1px solid #555 !important;
-    color: #ffffff !important;
-  }
-
-  /* Modal overlay */
-  .modal {
-    background: rgba(0,0,0,0.7);
-  }
-}
-        /* IMAGEN PANTALLA COMPLETA */
-.img-full {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 20px;
-}
-        /* IMAGEN HORARIOS */
-.img-horarios {
-    width: 100%;
-    max-width: 500px;
-    cursor: pointer;
-    border-radius: 14px;
-    display: block;
-    margin: 0 auto;
-}
-
-        /* Botón cerrar modal */
-.modal-close {
-    position: absolute;
-    top: 20px;          /* dentro del cuadro */
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 1.1rem;  /* más pequeña */
-    cursor: pointer;
-    color: #0D0D0D;
-    line-height: 1;
-}
-        /* Color de labels del formulario */
-.modal-content label {
-    color: #0D0D0D;
-}
-        /* ===== MODAL ===== */
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal-content {
-    box-shadow: 0 1px 4px rgba(0,0,0,0.21);
-    position: relative;      /* ← CLAVE */
-    background: white;
-    border-radius: 28px;
-    padding: 32px;
-    width: 90%;
-    max-width: 480px;
-}
-
-.modal-content h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* CAMPOS */
-.campo {
-    display: flex;
-    align-items: center;
-    margin-bottom: 14px;
-}
-
-.campo label {
-    width: 45%;
-    font-weight: bold;
-}
-
-.campo input,
-.campo select {
-    width: 55%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-}
-
-/* BOTÓN */
-.btn-enviar {
-    margin-top: 20px;
-    width: 100%;
-    padding: 14px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 14px;
-    border: none;
-    background: #1857FF;
-    color: white;
-    cursor: pointer;
-}
-
-        /* ===== TEXTO CLARO / OSCURO PERSONALIZADO ===== */
-
-/* MODO CLARO */
-.docente,
-header h2,
-.card h2,
-.card ul li {
-    color: #0D0D0D;
-}
-
-/* MODO OSCURO */
-@media (prefers-color-scheme: dark) {
-    .docente,
-    header h2,
-    .card h2,
-    .card ul li {
-        color: #FFFFFF;
-    }
-}
-        
-/* BOTÓN INSCRIPCIÓN */
-#btn-inscripcion {
-    border: none;
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9999;
-    background: #1857FF;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 20px 45px;
-    border-radius: 999px;
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-    animation: flotando 2.8s ease-in-out infinite;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-#btn-inscripcion:hover {
-    transform: translateX(-50%) scale(1.05);
-    box-shadow: 0 14px 30px rgba(24, 87, 255, 0.45);
-}
-        
-@keyframes flotando {
-    0%   { transform: translate(-50%, 0); }
-    50%  { transform: translate(-50%, -8px); }
-    100% { transform: translate(-50%, 0); }
-}
-
-/* FONDO CLARO / OSCURO */
+    /* ===== ESTILOS GENERALES (MODO CLARO) ===== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: white;
-    color: #1857FF;
+    color: #0D0D0D;
     font-size: 20px;
     overflow-x: hidden;
 }
@@ -309,29 +35,14 @@ header {
     padding: 15px 20px 25px;
 }
 
-header h1 {
-    font-size: 3.0rem;
-    margin: 0;
-    font-weight: 900;
+h1, .card h2, .especialidad, .btn, a, .uni-tag {
+    color: #1857FF !important; /* Azul solicitado */
 }
 
-header h2 {
-    font-size: 1.7rem;
-    margin: 10px 0 5px;
-    font-weight: 700;
-    color: #0D0D0D; /* gris oscuro */
-}
-
-.especialidad {
-    font-size: 3.0rem;
-    font-style: italic;
-    font-weight: bold;   /* ← esto activa la negrita */
-}
-
-.nivel {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
+header h1 { font-size: 3.0rem; margin: 0; font-weight: 900; }
+header h2 { font-size: 1.7rem; margin: 10px 0 5px; font-weight: 700; color: #0D0D0D; }
+.especialidad { font-size: 3.0rem; font-style: italic; font-weight: bold; }
+.docente { margin-top: 12px; font-size: 1.2rem; font-weight: bold; color: #0D0D0D; }
 
 /* FOTO */
 .foto-docente {
@@ -339,35 +50,12 @@ header h2 {
     display: inline-block;
     width: 260px;
     height: 260px;
-    overflow: hidden;        /* ← corta la foto */
-    background: transparent; /* invisible */
-    box-shadow: none;        /* sin sombra */
-    border-radius: 0;        /* cuadrado */
+    overflow: hidden;
 }
+.foto-docente img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 
-.foto-docente img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    border-radius: 0;        /* sin círculo */
-}
-
-
-.docente {
-    margin-top: 12px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* CONTENEDOR */
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 0 20px 130px; /* ← espacio extra abajo */
-}
-
-/* CARDS (SOMBRA POWERPOINT) */
+/* CONTENEDOR Y CARDS */
+.container { max-width: 1000px; margin: auto; padding: 0 20px 130px; }
 .card {
     background: white;
     padding: 25px;
@@ -375,176 +63,87 @@ header h2 {
     box-shadow: 0 1px 4px rgba(0,0,0,0.21);
     margin-bottom: 15px;
 }
-
-.card h2 {
-    color: #1857FF;
-    font-size: 2.0rem;
-    margin: 2px 0 6px 0;
-}
-        .card p {
-    margin: 4px 0;
-    line-height: 1.4;
-}
-
-/* BOTONES */
-.btn {
-    display: inline-block;
-    padding: 16px 32px;
-    border-radius: 14px;
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-top: 10px;
-    text-decoration: none;
-    color: white;
-}
-
-.btn-matricula { background: #1857FF; }
-.btn-whatsapp { background: #25D366; }
-.btn-telegram { background: #2AABEE; }
+.card p { margin: 4px 0; line-height: 1.4; color: #0D0D0D; }
 
 /* UNIVERSIDADES */
-.universidades {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    max-height: calc(2 * 56px + 12px); /* 2 filas */
-    overflow: hidden;
-}
-
+.universidades { display: flex; flex-wrap: wrap; gap: 12px; overflow: hidden; }
 .uni-tag {
-    background: #1857FF;   /* AZUL SOLICITADO */
-    color: #ffffff;
+    background: #1857FF; /* Fondo azul */
+    color: #ffffff !important; /* Texto blanco para contraste */
     padding: 14px 24px;
     border-radius: 12px;
     font-size: 18px;
+    font-weight: bold;
 }
 
-
-/* SHARE */
-#shareBtn {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    z-index: 9999;
-    background: white;
+/* BOTÓN FLOTANTE */
+#btn-inscripcion {
     border: none;
-    border-radius: 50%;
-    width: 52px;
-    height: 52px;
-    font-size: 22px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
-        /* Estilos para los botones de pago */
-.btn-pago-app {
-    display: block;
-    width: fit-content;
-    padding: 10px 20px;
-    border-radius: 10px;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #1857FF;
     color: white !important;
-    text-decoration: none;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin: 10px 0;
-    font-size: 0.9rem;
-}
-.btn-yape-app { background: #742284; } /* Morado Yape */
-.btn-bcp-app { background: #002A54; }  /* Azul BCP */
-
-.info-pago-texto {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: #333;
-}
-.link-ws {
-    color: #25D366;
-    text-decoration: underline;
-    font-weight: bold;
-}
-        /* =========================
-   AJUSTE FINAL VISIBILIDAD
-   (NO BORRA NADA EXISTENTE)
-========================= */
-
-/* MODO CLARO */
-.card p,
-.info-pago-texto,
-.info-pago-texto a,
-.info-pago-texto strong {
-  color: #0D0D0D !important;
+    padding: 20px 45px;
+    border-radius: 999px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    animation: flotando 2.8s ease-in-out infinite;
 }
 
-/* UNIVERSIDADES MODO CLARO */
-.uni-tag {
-  color: #ffffff !important;
+/* ===== MODO OSCURO UNIFICADO ===== */
+@media (prefers-color-scheme: dark) {
+    body, header, .card, .modal-content, #shareBtn {
+        background-color: #353535 !important;
+    }
+    body, p, span, div, li, label, header h2, .docente, .card p {
+        color: #ffffff !important;
+    }
+    /* Mantenemos el azul específico en modo oscuro */
+    h1, .card h2, .btn, a, .especialidad {
+        color: #1857FF !important;
+    }
+    .uni-tag {
+        background: #1857FF !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    input, select {
+        background-color: #2b2b2b !important;
+        border: 1px solid #666 !important;
+        color: #ffffff !important;
+    }
+    .card, .modal-content, #shareBtn {
+        box-shadow: 0 1px 6px rgba(255,255,255,0.15) !important;
+    }
 }
 
-  /* Yape / Transferencia / Teléfono */
-  .card p,
-  .info-pago-texto,
-  .info-pago-texto a,
-  .info-pago-texto strong {
-    color: #ffffff !important;
-  }
+/* OTROS AJUSTES */
+.img-full { max-width: 90%; max-height: 90%; border-radius: 20px; }
+.img-horarios { width: 100%; max-width: 500px; cursor: pointer; border-radius: 14px; display: block; margin: 0 auto; }
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: none; align-items: center; justify-content: center; z-index: 10000; }
+.modal.active { display: flex; }
+.modal-content { position: relative; background: white; border-radius: 28px; padding: 32px; width: 90%; max-width: 480px; }
+.modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.1rem; cursor: pointer; }
+.campo { display: flex; align-items: center; margin-bottom: 14px; }
+.campo label { width: 45%; font-weight: bold; }
+.campo input, .campo select { width: 55%; padding: 10px; border-radius: 10px; border: 1px solid #ccc; }
+.btn-enviar { margin-top: 20px; width: 100%; padding: 14px; font-size: 1.2rem; font-weight: bold; border-radius: 14px; border: none; background: #1857FF; color: white; cursor: pointer; }
+#shareBtn { position: fixed; top: 16px; right: 16px; z-index: 9999; background: white; border: none; border-radius: 50%; width: 52px; height: 52px; font-size: 22px; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
 
- @media (prefers-color-scheme: dark) {
-  .uni-tag {
-    background: #1857FF !important;
-    color: #ffffff !important;
-    font-weight: bold;
-  }
-}
-/* ===== AJUSTES TEXTO MODO CLARO ===== */
-
-/* Número de contacto */
-.card a[href^="tel"] {
-  color: #0D0D0D !important;
+@keyframes flotando {
+    0%   { transform: translate(-50%, 0); }
+    50%  { transform: translate(-50%, -8px); }
+    100% { transform: translate(-50%, 0); }
 }
 
-/* Texto métodos de pago */
-.card p,
-.info-pago-texto,
-.info-pago-texto strong,
-.info-pago-texto a {
-  color: #0D0D0D !important;
+@media (max-width: 768px) {
+    .universidades { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; }
+    .uni-tag { flex: 0 0 auto; white-space: nowrap; }
 }
-        @media (prefers-color-scheme: dark) {
-
-  /* Número de contacto */
-  .card a[href^="tel"] {
-    color: #ffffff !important;
-  }
-
-  /* Texto métodos de pago */
-  .card p,
-  .info-pago-texto,
-  .info-pago-texto strong,
-  .info-pago-texto a {
-    color: #ffffff !important;
-  }
-
-}
-        @media (max-width: 768px) {
-
-  .universidades {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    max-height: none;
-    padding-bottom: 8px;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .uni-tag {
-    flex: 0 0 auto;
-    white-space: nowrap;
-  }
-
-}
-        /* Cuando el formulario está abierto, detener animación del botón */
-.formulario-abierto #btn-inscripcion {
-    animation: none;
-}
-  /* AQUÍ ES EL FINAL DEL CSS */
-    </style>
 </head>
 
 <body>
