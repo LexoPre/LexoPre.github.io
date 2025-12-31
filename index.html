@@ -721,17 +721,28 @@ document.addEventListener("DOMContentLoaded", () => {
       return h * 60 + m;
     };
 
-    const min = convertirAMinutos(valor);
-    if (min !== null) {
-      const r1 = (min >= 480 && min <= 780);  
-      const r2 = (min >= 900 && min <= 1080); 
+   // Validar formato estricto: (número del 1 al 12) seguido de (am o pm)
+    const regexFormato = /^(1[0-2]|[1-9])\s*(am|pm)$/;
+    const formatoValido = regexFormato.test(valor.trim());
+
+    if (formatoValido) {
+      const min = convertirAMinutos(valor);
+      const r1 = (min >= 480 && min <= 780);  // 8am - 1pm
+      const r2 = (min >= 900 && min <= 1080); // 3pm - 6pm
+      
       if (r1 || r2) {
         errorHora.style.display = "none";
         inputHora.style.color = ""; 
       } else {
         errorHora.style.display = "block";
-        inputHora.style.color = "red"; 
+        errorHora.innerText = "Horario no disponible";
+        inputHora.style.color = "red";
       }
+    } else {
+      // Si el texto es basura (como "mgrk" o "29am")
+      errorHora.style.display = "block";
+      errorHora.innerText = "Formato inválido (Ej: 9am o 4pm)";
+      inputHora.style.color = "red";
     }
   });
 /* LÓGICA DE MÉTODOS DE PAGO */
@@ -772,7 +783,15 @@ document.addEventListener("DOMContentLoaded", () => {
  /* ENVIAR A WHATSAPP */
   form.addEventListener("submit", e => {
     e.preventDefault();
-
+// Bloquear envío si la hora es inválida (solo cuando es "Clase")
+    if (duracion.value === "Clase") {
+      const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
+      const errorVisible = document.getElementById("errorHora").style.display === "block";
+      if (!/^(1[0-2]|[1-9])\s*(am|pm)$/.test(valorHora) || errorVisible) {
+        alert("Por favor, ingrese una hora válida dentro del rango permitido.");
+        return;
+      }
+    }
     const apellidos = form.elements[0].value;
     const nombres = form.elements[1].value;
     const uniVal = form.elements[5].value; // Índice corregido para Universidad
