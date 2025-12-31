@@ -402,7 +402,9 @@ header h2 {
 .universidades {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 12px;
+    max-height: calc(2 * 56px + 12px); /* 2 filas */
+    overflow: hidden;
 }
 
 .uni-tag {
@@ -516,7 +518,24 @@ header h2 {
   }
 
 }
+        @media (max-width: 768px) {
 
+  .universidades {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .uni-tag {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+}
+  /* AQUÍ ES EL FINAL DEL CSS */
     </style>
 </head>
 
