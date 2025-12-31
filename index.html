@@ -577,7 +577,7 @@ header h2 {
 <div id="seccionHoraEspecial" style="display:none;">
   <div class="campo">
     <label>Hora</label>
-    <input type="text" id="inputHora" placeholder="Ej: 9:00 am">
+    <input type="text" id="inputHora" placeholder="Ej: 9:30 am o 10am">
   </div>
   <div id="errorHora" style="color: red; font-size: 0.8rem; display: none; margin-bottom: 10px; text-align: right; font-weight: bold;">
     Horario no disponible
@@ -721,8 +721,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return h * 60 + m;
     };
 
-   // Validar formato estricto: (número del 1 al 12) seguido de (am o pm)
-    const regexFormato = /^(1[0-2]|[1-9])\s*(am|pm)$/;
+   // Formato que acepta: "9am", "9:30am", "10:15 pm", etc.
+    const regexFormato = /^(1[0-2]|[1-9])(:[0-5][0-9])?\s*(am|pm)$/;
     const formatoValido = regexFormato.test(valor.trim());
 
     if (formatoValido) {
@@ -787,7 +787,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (duracion.value === "Clase") {
       const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
       const errorVisible = document.getElementById("errorHora").style.display === "block";
-      if (!/^(1[0-2]|[1-9])\s*(am|pm)$/.test(valorHora) || errorVisible) {
+      if (!/^(1[0-2]|[1-9])(:[0-5][0-9])?\s*(am|pm)$/.test(valorHora) || errorVisible) {
         alert("Por favor, ingrese una hora válida dentro del rango permitido.");
         return;
       }
