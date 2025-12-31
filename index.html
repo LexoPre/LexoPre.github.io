@@ -5,6 +5,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -363,8 +364,7 @@ header h2 {
 
 /* CARDS (SOMBRA POWERPOINT) */
 .card {
-    background: #1857FF;
-    color: white;
+    background: white;
     padding: 40px;
     border-radius: 18px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.21);
@@ -401,12 +401,13 @@ header h2 {
 }
 
 .uni-tag {
-    background: linear-gradient(135deg,#0072ff,#00c6ff);
-    color: white;
+    background: #1857FF;   /* AZUL SOLICITADO */
+    color: #ffffff;
     padding: 14px 24px;
     border-radius: 12px;
     font-weight: bold;
 }
+
 
 /* SHARE */
 #shareBtn {
@@ -465,11 +466,6 @@ header h2 {
   color: #ffffff !important;
 }
 
-/* =========================
-   MODO OSCURO
-========================= */
-@media (prefers-color-scheme: dark) {
-
   /* Yape / Transferencia / Teléfono */
   .card p,
   .info-pago-texto,
@@ -478,18 +474,14 @@ header h2 {
     color: #ffffff !important;
   }
 
-  /* UNIVERSIDADES QUE SE NOTEN */
+ @media (prefers-color-scheme: dark) {
   .uni-tag {
-    background: #ffffff !important;
-    color: #000000 !important;
-    font-weight: 900 !important;
+    background: #1857FF !important;
+    color: #ffffff !important;
+    font-weight: bold;
   }
 }
-/* Color azul para tarjetas en modo oscuro */
-.dark-mode .card {
-  background: #1857FF;
-  color: white;
-}
+
     </style>
 </head>
 
@@ -707,7 +699,7 @@ document.getElementById("labelFrecuencia").innerText = "Frecuencia";
                frecuencia.value.includes("2") ? "S/ 15" : "S/ 10";
     }
 
-    precioTotal.innerText = "Pago: " + precio;
+    precioTotal.innerText = "Precio total: " + precio;
 
     // ESTO ACTIVA LOS 5 GRUPOS OBLIGATORIOS
     if (duracion.value !== "Clase" && duracion.value !== "") {
@@ -736,7 +728,7 @@ document.getElementById("labelFrecuencia").innerText = "Frecuencia";
           </a>
           <br>
           <a href="https://app.yape.com.pe/descargar-yape" target="_blank" class="btn-pago-app btn-yape-app">Abrir Yape</a>
-          Envíe la captura Yape al número <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a> por WhatsApp.
+          Envíe la captura Yape al número <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a> por WhatsApp
         </div>
       `;
     } else if (metodoPago.value === "BCP") {
@@ -747,7 +739,7 @@ document.getElementById("labelFrecuencia").innerText = "Frecuencia";
           CCI: 00219119298463807458<br>
           A nombre de: Pedro Pablo Muñoz López
           <a href="https://play.google.com/store/search?q=bcp&c=apps&hl=es_PE" target="_blank" class="btn-pago-app btn-bcp-app">Abrir BCP</a>
-          Envíe el recibo de transferencia a <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a> por WhatsApp.
+          Compartir recibo de transferencia a <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a>
         </div>
       `;
     } else {
