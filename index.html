@@ -22,133 +22,49 @@
     <meta name="robots" content="index, follow">
 
     <style>
-        /* ===== UNIVERSIDADES BLANCAS EN MODO OSCURO ===== */
-@media (prefers-color-scheme: dark) {
+/* ===== MODO OSCURO UNIFICADO ===== */
+        @media (prefers-color-scheme: dark) {
+            /* Fondos oscuros */
+            body, header, .card, .modal-content {
+                background-color: #353535 !important;
+            }
 
-  .uni-tag {
-    background: #ffffff !important;   /* FONDO BLANCO */
-    color: #353535 !important;        /* TEXTO OSCURO */
-    box-shadow: 0 2px 8px rgba(255,255,255,0.35) !important;
-    font-weight: 900;
-  }
+            /* Texto general en blanco */
+            body, p, span, div, li, label, .docente, header h2, .info-pago-texto, .info-pago-texto strong {
+                color: #ffffff !important;
+            }
 
-}
-        /* ===== MODO OSCURO DEFINITIVO ===== */
-@media (prefers-color-scheme: dark) {
+            /* TODO EL AZUL EN #1857FF */
+            h1, .card h2, a, .btn {
+                color: #1857FF !important;
+            }
 
-  /* FONDO GENERAL */
-  body,
-  header,
-  .card,
-  .modal-content {
-    background-color: #353535 !important;
-  }
+            .uni-tag, .btn-enviar, .btn-matricula, #btn-inscripcion {
+                background-color: #1857FF !important;
+                color: #ffffff !important; /* Texto blanco sobre fondo azul */
+            }
 
-  /* TEXTO GENERAL BLANCO */
-  body,
-  p,
-  span,
-  div,
-  li,
-  label,
-  input,
-  select,
-  .docente,
-  header h2 {
-    color: #ffffff !important;
-  }
+            /* Inputs y Selects */
+            input, select {
+                background-color: #2b2b2b !important;
+                border: 1px solid #666 !important;
+                color: #ffffff !important;
+            }
 
-  /* TÍTULOS AZULES SE MANTIENEN */
-  h1,
-  .card h2,
-  .btn,
-  a {
-    color: #1857FF !important;
-  }
+            /* Sombras claras para que resalten en fondo oscuro */
+            .card, .modal-content, #shareBtn {
+                box-shadow: 0 1px 6px rgba(255,255,255,0.15) !important;
+            }
 
-  /* UNIVERSIDADES → TEXTO BLANCO */
-  .uni-tag {
-    color: #ffffff !important;
-    background: #1857FF !important; /* azul limpio */
-  }
+            #shareBtn {
+                background: #353535 !important;
+                color: #ffffff !important;
+            }
 
-  /* SOMBRAS INVERTIDAS (CLARAS) */
-  .card,
-  .modal-content,
-  #shareBtn {
-    box-shadow: 0 1px 6px rgba(255,255,255,0.25) !important;
-  }
-
-  /* INPUTS */
-  input,
-  select {
-    background-color: #2b2b2b !important;
-    border: 1px solid #666 !important;
-    color: #ffffff !important;
-  }
-
-  /* BOTÓN SHARE */
-  #shareBtn {
-    background: #353535 !important;
-    color: #ffffff !important;
-  }
-
-  /* OVERLAY MODAL */
-  .modal {
-    background: rgba(0,0,0,0.75);
-  }
-}
-        /* ===== MODO OSCURO GLOBAL ===== */
-@media (prefers-color-scheme: dark) {
-
-  /* Fondo general */
-  body,
-  header,
-  .card,
-  .modal-content {
-    background-color: #353535 !important;
-  }
-
-  /* Texto general BLANCO */
-  body,
-  p,
-  span,
-  div,
-  li,
-  label,
-  input,
-  select,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: #ffffff !important;
-  }
-
-  /* Mantener AZUL (no se vuelve blanco) */
-  h1,
-  .card h2,
-  .btn,
-  a,
-  .uni-tag {
-    color: #1857FF !important;
-  }
-
-  /* Inputs y selects */
-  input,
-  select {
-    background-color: #2b2b2b !important;
-    border: 1px solid #555 !important;
-    color: #ffffff !important;
-  }
-
-  /* Modal overlay */
-  .modal {
-    background: rgba(0,0,0,0.7);
-  }
-}
+            .modal {
+                background: rgba(0,0,0,0.8);
+            }
+        }
         /* IMAGEN PANTALLA COMPLETA */
 .img-full {
     max-width: 90%;
