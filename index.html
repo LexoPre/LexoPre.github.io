@@ -656,12 +656,28 @@ document.addEventListener("DOMContentLoaded", () => {
     precioTotal.innerText = "";
 
     if (duracion.value === "Clase") {
-      frecuencia.innerHTML += `
-        <option>1 hora</option>
-        <option>2 horas</option>
-        <option>3 horas</option>
-      `;
-    } else {
+  frecuencia.innerHTML += `
+    <option>1 hora</option>
+    <option>2 horas</option>
+    <option>3 horas</option>
+  `;
+
+  // Texto debajo de Frecuencia
+  if (!document.getElementById("notaClase")) {
+    const nota = document.createElement("div");
+    nota.id = "notaClase";
+    nota.style.fontSize = "0.9rem";
+    nota.style.marginTop = "6px";
+    nota.style.fontStyle = "italic";
+    nota.innerText = "Coordinar hora con el docente.";
+    campoFrecuencia.appendChild(nota);
+  }
+
+} else {
+  // Si cambia a otra duración, quitar el texto
+  const notaExistente = document.getElementById("notaClase");
+  if (notaExistente) notaExistente.remove();
+
       frecuencia.innerHTML += `
         <option>Diario (5 días)</option>
         <option>Interdiario (3 días)</option>
