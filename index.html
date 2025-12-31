@@ -354,15 +354,15 @@ header h2 {
 }
         /* Estilos para los botones de pago */
 .btn-pago-app {
-    display: block;
-    width: fit-content;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: #ffffff !important; /* Fuerza el color blanco de las letras */
-    text-decoration: none;
-    font-weight: bold;
-    margin: 10px 0;
-    font-size: 0.9rem;
+    display: block !important;
+    width: fit-content !important;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    margin: 10px 0 !important;
+    font-size: 0.9rem !important;
 }
 .btn-yape-app { background: #742284; } /* Morado Yape */
 .btn-bcp-app { background: #002A54; }  /* Azul BCP */
@@ -783,6 +783,14 @@ document.addEventListener("DOMContentLoaded", () => {
  /* ENVIAR A WHATSAPP */
   form.addEventListener("submit", e => {
     e.preventDefault();
+      if (duracion.value === "Clase") {
+      const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
+      const errorVisible = document.getElementById("errorHora").style.display === "block";
+      if (!/^(1[0-2]|[1-9])(:[0-5][0-9])?\s*(am|pm)$/.test(valorHora) || errorVisible) {
+        alert("Por favor, ingrese una hora válida (Ej: 10am o 4:30pm) dentro del rango permitido.");
+        return;
+      }
+    }
 // Bloquear envío si la hora es inválida (solo cuando es "Clase")
     if (duracion.value === "Clase") {
       const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
