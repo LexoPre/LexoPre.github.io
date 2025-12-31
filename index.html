@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,6 +14,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- 🔥 SEO -->
     <title>LEXO CLASES VIRTUALES DE LENGUAJE PREUNIVERSITARIO PEDRO MUÑOZ</title>
     <meta name="description" content="Clases virtuales de lenguaje nivel preuniversitario con el docente Pedro Muñoz. LexoPre">
     <meta name="keywords" content="Clases virtuales de lenguaje, academia LEXO">
@@ -12,63 +22,250 @@
     <meta name="robots" content="index, follow">
 
     <style>
-/* ===== ESTILOS GENERALES (MODO CLARO) ===== */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: white;
+        /* ===== UNIVERSIDADES BLANCAS EN MODO OSCURO ===== */
+@media (prefers-color-scheme: dark) {
+
+  .uni-tag {
+    background: #ffffff !important;   /* FONDO BLANCO */
+    color: #353535 !important;        /* TEXTO OSCURO */
+    box-shadow: 0 2px 8px rgba(255,255,255,0.35) !important;
+    font-weight: 900;
+  }
+
+}
+        /* ===== MODO OSCURO DEFINITIVO ===== */
+@media (prefers-color-scheme: dark) {
+
+  /* FONDO GENERAL */
+  body,
+  header,
+  .card,
+  .modal-content {
+    background-color: #353535 !important;
+  }
+
+  /* TEXTO GENERAL BLANCO */
+  body,
+  p,
+  span,
+  div,
+  li,
+  label,
+  input,
+  select,
+  .docente,
+  header h2 {
+    color: #ffffff !important;
+  }
+
+  /* TÍTULOS AZULES SE MANTIENEN */
+  h1,
+  .card h2,
+  .btn,
+  a {
+    color: #1857FF !important;
+  }
+
+  /* UNIVERSIDADES → TEXTO BLANCO */
+  .uni-tag {
+    color: #ffffff !important;
+    background: #1857FF !important; /* azul limpio */
+  }
+
+  /* SOMBRAS INVERTIDAS (CLARAS) */
+  .card,
+  .modal-content,
+  #shareBtn {
+    box-shadow: 0 1px 6px rgba(255,255,255,0.25) !important;
+  }
+
+  /* INPUTS */
+  input,
+  select {
+    background-color: #2b2b2b !important;
+    border: 1px solid #666 !important;
+    color: #ffffff !important;
+  }
+
+  /* BOTÓN SHARE */
+  #shareBtn {
+    background: #353535 !important;
+    color: #ffffff !important;
+  }
+
+  /* OVERLAY MODAL */
+  .modal {
+    background: rgba(0,0,0,0.75);
+  }
+}
+        /* ===== MODO OSCURO GLOBAL ===== */
+@media (prefers-color-scheme: dark) {
+
+  /* Fondo general */
+  body,
+  header,
+  .card,
+  .modal-content {
+    background-color: #353535 !important;
+  }
+
+  /* Texto general BLANCO */
+  body,
+  p,
+  span,
+  div,
+  li,
+  label,
+  input,
+  select,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #ffffff !important;
+  }
+
+  /* Mantener AZUL (no se vuelve blanco) */
+  h1,
+  .card h2,
+  .btn,
+  a,
+  .uni-tag {
+    color: #1857FF !important;
+  }
+
+  /* Inputs y selects */
+  input,
+  select {
+    background-color: #2b2b2b !important;
+    border: 1px solid #555 !important;
+    color: #ffffff !important;
+  }
+
+  /* Modal overlay */
+  .modal {
+    background: rgba(0,0,0,0.7);
+  }
+}
+        /* IMAGEN PANTALLA COMPLETA */
+.img-full {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+}
+        /* IMAGEN HORARIOS */
+.img-horarios {
+    width: 100%;
+    max-width: 500px;
+    cursor: pointer;
+    border-radius: 14px;
+    display: block;
+    margin: 0 auto;
+}
+
+        /* Botón cerrar modal */
+.modal-close {
+    position: absolute;
+    top: 20px;          /* dentro del cuadro */
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.1rem;  /* más pequeña */
+    cursor: pointer;
     color: #0D0D0D;
-    font-size: 20px;
-    overflow-x: hidden;
+    line-height: 1;
+}
+        /* Color de labels del formulario */
+.modal-content label {
+    color: #0D0D0D;
+}
+        /* ===== MODAL ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
 }
 
-header {
-    text-align: center;
-    padding: 15px 20px 25px;
+.modal.active {
+    display: flex;
 }
 
-h1, .card h2, .btn, a, .especialidad, .uni-tag, .btn-enviar {
-    color: #1857FF; /* Azul solicitado */
-}
-
-header h1 { font-size: 3.0rem; margin: 0; font-weight: 900; }
-header h2 { font-size: 1.7rem; margin: 10px 0 5px; font-weight: 700; color: #0D0D0D; }
-.especialidad { font-size: 3.0rem; font-style: italic; font-weight: bold; }
-.docente { margin-top: 12px; font-size: 1.2rem; font-weight: bold; color: #0D0D0D; }
-
-/* FOTO */
-.foto-docente {
-    margin-top: 20px;
-    display: inline-block;
-    width: 260px;
-    height: 260px;
-    overflow: hidden;
-}
-.foto-docente img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-
-/* CONTENEDOR Y CARDS */
-.container { max-width: 1000px; margin: auto; padding: 0 20px 130px; }
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 18px;
+.modal-content {
     box-shadow: 0 1px 4px rgba(0,0,0,0.21);
-    margin-bottom: 15px;
+    position: relative;      /* ← CLAVE */
+    background: white;
+    border-radius: 28px;
+    padding: 32px;
+    width: 90%;
+    max-width: 480px;
 }
-.card p { margin: 4px 0; line-height: 1.4; color: #0D0D0D; }
 
-/* UNIVERSIDADES */
-.universidades { display: flex; flex-wrap: wrap; gap: 12px; overflow: hidden; }
-.uni-tag {
-    background: #1857FF; 
-    color: #ffffff !important; 
-    padding: 14px 24px;
-    border-radius: 12px;
-    font-size: 18px;
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* CAMPOS */
+.campo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.campo label {
+    width: 45%;
     font-weight: bold;
 }
 
-/* BOTÓN FLOTANTE */
+.campo input,
+.campo select {
+    width: 55%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* BOTÓN */
+.btn-enviar {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 14px;
+    border: none;
+    background: #1857FF;
+    color: white;
+    cursor: pointer;
+}
+
+        /* ===== TEXTO CLARO / OSCURO PERSONALIZADO ===== */
+
+/* MODO CLARO */
+.docente,
+header h2,
+.card h2,
+.card ul li {
+    color: #0D0D0D;
+}
+
+/* MODO OSCURO */
+@media (prefers-color-scheme: dark) {
+    .docente,
+    header h2,
+    .card h2,
+    .card ul li {
+        color: #FFFFFF;
+    }
+}
+        
+/* BOTÓN INSCRIPCIÓN */
 #btn-inscripcion {
     border: none;
     position: fixed;
@@ -82,72 +279,288 @@ header h2 { font-size: 1.7rem; margin: 10px 0 5px; font-weight: 700; color: #0D0
     font-weight: bold;
     padding: 20px 45px;
     border-radius: 999px;
+    text-decoration: none;
     box-shadow: 0 10px 25px rgba(0,0,0,0.35);
     animation: flotando 2.8s ease-in-out infinite;
-    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-/* ===== MODO OSCURO CONSOLIDADO ===== */
-@media (prefers-color-scheme: dark) {
-    body, header, .card, .modal-content, #shareBtn {
-        background-color: #353535 !important;
-    }
-    body, p, span, div, li, label, header h2, .docente, .card p, .card a[href^="tel"] {
-        color: #ffffff !important;
-    }
-    h1, .card h2, .btn, a, .especialidad {
-        color: #1857FF !important;
-    }
-    .uni-tag {
-        background: #1857FF !important;
-        color: #ffffff !important;
-    }
-    input, select {
-        background-color: #2b2b2b !important;
-        border: 1px solid #666 !important;
-        color: #ffffff !important;
-    }
-    .card, .modal-content, #shareBtn {
-        box-shadow: 0 1px 6px rgba(255,255,255,0.15) !important;
-    }
-    #shareBtn { color: #ffffff !important; }
+#btn-inscripcion:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 14px 30px rgba(24, 87, 255, 0.45);
 }
-
-/* OTROS ESTILOS */
-.img-full { max-width: 90%; max-height: 90%; border-radius: 20px; }
-.img-horarios { width: 100%; max-width: 500px; cursor: pointer; border-radius: 14px; display: block; margin: 0 auto; }
-.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 10000; }
-.modal.active { display: flex; }
-.modal-content { position: relative; background: white; border-radius: 28px; padding: 32px; width: 90%; max-width: 480px; }
-.modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.1rem; cursor: pointer; }
-.campo { display: flex; align-items: center; margin-bottom: 14px; }
-.campo label { width: 45%; font-weight: bold; }
-.campo input, .campo select { width: 55%; padding: 10px; border-radius: 10px; border: 1px solid #ccc; }
-.btn-enviar { margin-top: 20px; width: 100%; padding: 14px; font-size: 1.2rem; font-weight: bold; border-radius: 14px; border: none; background: #1857FF; color: white !important; cursor: pointer; }
-#shareBtn { position: fixed; top: 16px; right: 16px; z-index: 9999; background: white; border: none; border-radius: 50%; width: 52px; height: 52px; font-size: 22px; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
-
+        
 @keyframes flotando {
     0%   { transform: translate(-50%, 0); }
     50%  { transform: translate(-50%, -8px); }
     100% { transform: translate(-50%, 0); }
 }
 
-@media (max-width: 768px) {
-    .universidades { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; }
-    .uni-tag { flex: 0 0 auto; white-space: nowrap; }
+/* FONDO CLARO / OSCURO */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: white;
+    color: #1857FF;
+    font-size: 20px;
+    overflow-x: hidden;
 }
+
+header {
+    text-align: center;
+    padding: 15px 20px 25px;
+}
+
+header h1 {
+    font-size: 3.0rem;
+    margin: 0;
+    font-weight: 900;
+}
+
+header h2 {
+    font-size: 1.7rem;
+    margin: 10px 0 5px;
+    font-weight: 700;
+    color: #0D0D0D; /* gris oscuro */
+}
+
+.especialidad {
+    font-size: 3.0rem;
+    font-style: italic;
+    font-weight: bold;   /* ← esto activa la negrita */
+}
+
+.nivel {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* FOTO */
+.foto-docente {
+    margin-top: 20px;
+    display: inline-block;
+    width: 260px;
+    height: 260px;
+    overflow: hidden;        /* ← corta la foto */
+    background: transparent; /* invisible */
+    box-shadow: none;        /* sin sombra */
+    border-radius: 0;        /* cuadrado */
+}
+
+.foto-docente img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 0;        /* sin círculo */
+}
+
+
+.docente {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* CONTENEDOR */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px 130px; /* ← espacio extra abajo */
+}
+
+/* CARDS (SOMBRA POWERPOINT) */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.21);
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    color: #1857FF;
+    font-size: 2.0rem;
+    margin: 2px 0 6px 0;
+}
+        .card p {
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-matricula { background: #1857FF; }
+.btn-whatsapp { background: #25D366; }
+.btn-telegram { background: #2AABEE; }
+
+/* UNIVERSIDADES */
+.universidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-height: calc(2 * 56px + 12px); /* 2 filas */
+    overflow: hidden;
+}
+
+.uni-tag {
+    background: #1857FF;   /* AZUL SOLICITADO */
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 18px;
+}
+
+
+/* SHARE */
+#shareBtn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+        /* Estilos para los botones de pago */
+.btn-pago-app {
+    display: block;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+.btn-yape-app { background: #742284; } /* Morado Yape */
+.btn-bcp-app { background: #002A54; }  /* Azul BCP */
+
+.info-pago-texto {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #333;
+}
+.link-ws {
+    color: #25D366;
+    text-decoration: underline;
+    font-weight: bold;
+}
+        /* =========================
+   AJUSTE FINAL VISIBILIDAD
+   (NO BORRA NADA EXISTENTE)
+========================= */
+
+/* MODO CLARO */
+.card p,
+.info-pago-texto,
+.info-pago-texto a,
+.info-pago-texto strong {
+  color: #0D0D0D !important;
+}
+
+/* UNIVERSIDADES MODO CLARO */
+.uni-tag {
+  color: #ffffff !important;
+}
+
+  /* Yape / Transferencia / Teléfono */
+  .card p,
+  .info-pago-texto,
+  .info-pago-texto a,
+  .info-pago-texto strong {
+    color: #ffffff !important;
+  }
+
+ @media (prefers-color-scheme: dark) {
+  .uni-tag {
+    background: #1857FF !important;
+    color: #ffffff !important;
+    font-weight: bold;
+  }
+}
+/* ===== AJUSTES TEXTO MODO CLARO ===== */
+
+/* Número de contacto */
+.card a[href^="tel"] {
+  color: #0D0D0D !important;
+}
+
+/* Texto métodos de pago */
+.card p,
+.info-pago-texto,
+.info-pago-texto strong,
+.info-pago-texto a {
+  color: #0D0D0D !important;
+}
+        @media (prefers-color-scheme: dark) {
+
+  /* Número de contacto */
+  .card a[href^="tel"] {
+    color: #ffffff !important;
+  }
+
+  /* Texto métodos de pago */
+  .card p,
+  .info-pago-texto,
+  .info-pago-texto strong,
+  .info-pago-texto a {
+    color: #ffffff !important;
+  }
+
+}
+        @media (max-width: 768px) {
+
+  .universidades {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .uni-tag {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+}
+        /* Cuando el formulario está abierto, detener animación del botón */
+.formulario-abierto #btn-inscripcion {
+    animation: none;
+}
+  /* AQUÍ ES EL FINAL DEL CSS */
     </style>
 </head>
 
 <body>
 
-<button id="btn-inscripcion" type="button">INSCRIPCIÓN</button>
+<button id="btn-inscripcion" type="button">
+  INSCRIPCIÓN
+</button>
+
 <button id="shareBtn">🔗</button>
 
 <header>
     <h1>LEXO</h1>
     <h2>CLASES VIRTUALES</h2>
-    <div class="especialidad">Lenguaje</div>
+<div class="especialidad">Lenguaje</div>
+
     <div class="foto-docente">
         <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/FotoProfe.PNG">
     </div>
@@ -155,168 +568,336 @@ header h2 { font-size: 1.7rem; margin: 10px 0 5px; font-weight: 700; color: #0D0
 </header>
 
 <main class="container">
-    <div class="card">
-        <h2>Prepárate para ingresar</h2>
-        <div class="universidades">
-            <div class="uni-tag">UNMSM</div>
-            <div class="uni-tag">UNI</div>
-            <div class="uni-tag">PUCP</div>
-            <div class="uni-tag">UPCH</div>
-            <div class="uni-tag">UNFV</div>
-            <div class="uni-tag">UNAC</div>
-            <div class="uni-tag">UNSA</div>
-            <div class="uni-tag">UNT</div>
-            <div class="uni-tag">UNC</div>
-            <div class="uni-tag">UNPRG</div>
-        </div>
-    </div>
 
-    <div class="card">
-        <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Horarios.jpg" class="img-horarios" id="imgHorarios">
-    </div>
+<div class="card">
+<h2>Prepárate para ingresar</h2>
+<div class="universidades">
+<div class="uni-tag">UNMSM</div>
+<div class="uni-tag">UNI</div>
+<div class="uni-tag">PUCP</div>
+<div class="uni-tag">UPCH</div>
+<div class="uni-tag">UNFV</div>
+<div class="uni-tag">UNAC</div>
+<div class="uni-tag">UNSA</div>
+<div class="uni-tag">UNT</div>
+<div class="uni-tag">UNC</div>
+<div class="uni-tag">UNPRG</div>
+</div>
+</div>
+<div class="card">
 
-    <div class="card">
-      <h2>Plataforma</h2>
-      <p>
-        <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Jitsi%20meet.jpg"
-             style="height:44px;border-radius:8px;vertical-align:middle;">
-        Jitsi meet
-        <br>
-        Después de inscribirte recibirás un enlace para unirte a la clase por Jitsi meet.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Métodos de pago</h2>
-      <p>
-        <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Yape.jpg"
-             style="height:44px;border-radius:8px;vertical-align:middle;">
-        Yape
-        <br><br>
-        <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/BCP.jpg"
-             style="height:44px;border-radius:8px;vertical-align:middle;">
-        Transferencia
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Contacto</h2>
-      <p>📞 <a href="tel:943356235"><b>943356235</b></a></p>
-    </div>
-</main>
-
-<div id="modalInscripcion" class="modal">
-    <div class="modal-content">
-        <button class="modal-close" type="button">✕</button>
-        <h2>Formulario de Inscripción</h2>
-        <form id="formInscripcion">
-            <div class="campo"><label>Apellidos</label><input type="text" required></div>
-            <div class="campo"><label>Nombres</label><input type="text" required></div>
-            <div class="campo">
-                <label>Duración</label>
-                <select id="duracion" required>
-                    <option value="">Seleccionar</option>
-                    <option value="Ciclo">Ciclo (12 semanas)</option>
-                    <option value="Mes">Mes (4 semanas)</option>
-                    <option value="Semana">Semana</option>
-                    <option value="Clase">Clase</option>
-                </select>
-            </div>
-            <div class="campo" id="campoFrecuencia" style="display:none;">
-                <label id="labelFrecuencia">Frecuencia</label>
-                <select id="frecuencia" required><option value="">Seleccionar</option></select>
-            </div>
-            <div id="notaClase" style="display:none; font-size:0.9rem; font-style:italic; margin-bottom:14px;">Coordinar hora con el docente.</div>
-            <div class="campo" id="campoGrupo" style="display:none;">
-                <label>Grupo</label>
-                <select id="grupo">
-                    <option value="">Seleccionar</option>
-                    <option>Grupo 1 (08:00 - 09:40)</option>
-                    <option>Grupo 2 (10:00 - 11:40)</option>
-                    <option>Grupo 3 (12:00 - 13:40)</option>
-                    <option>Grupo 4 (15:00 - 16:40)</option>
-                    <option>Grupo 5 (17:00 - 18:40)</option>
-                </select>
-            </div>
-            <div class="campo"><label>Universidad</label><input type="text" required></div>
-            <div class="campo">
-                <label>Método de pago</label>
-                <select id="metodoPago" required>
-                    <option value="">Seleccionar</option>
-                    <option value="Yape">Yape</option>
-                    <option value="BCP">Transferencia</option>
-                </select>
-            </div>
-            <div id="precioTotal" style="font-weight:bold; margin-top:10px;"></div>
-            <div id="infoPago" style="display:none; margin-top:15px; padding-bottom:20px;"></div>
-            <button type="submit" class="btn-enviar">Inscribirme</button>
-        </form>
-    </div>
+  <img 
+    src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Horarios.jpg"
+    alt="Horarios de clases"
+    class="img-horarios"
+    id="imgHorarios"
+  >
+</div>
+<div class="card">
+  <h2>Plataforma</h2>
+  <p>
+    <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Jitsi%20meet.jpg"
+         style="height:44px;border-radius:8px;vertical-align:middle;">
+    Jitsi meet
+    <p>
+    Después de inscribirte recibirás un enlace para unirte a la clase por Jitsi meet.
+  </p>
+</div>
+<div class="card">
+  <h2>Métodos de pago</h2>
+  <p>
+    <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Yape.jpg"
+         style="height:44px;border-radius:8px;vertical-align:middle;">
+    Yape
+    <br><br>
+    <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/BCP.jpg"
+         style="height:44px;border-radius:8px;vertical-align:middle;">
+    Transferencia
+  </p>
 </div>
 
+<div class="card">
+  <h2>Contacto</h2>
+  <p>📞 <a href="tel:943356235"><b>943356235</b></a></p>
+</div>
+    
+</main>
+
+<!-- ===== MODAL INSCRIPCIÓN ===== -->
+<div id="modalInscripcion" class="modal">
+<div class="modal-content">
+    <button class="modal-close" type="button">✕</button>
+    <h2>Formulario de Inscripción</h2>
+
+    <form id="formInscripcion">
+      <div class="campo">
+        <label>Apellidos</label>
+        <input type="text" required>
+      </div>
+
+      <div class="campo">
+        <label>Nombres</label>
+        <input type="text" required>
+      </div>
+
+   <div class="campo">
+  <label>Duración</label>
+  <select id="duracion" required>
+    <option value="">Seleccionar</option>
+    <option value="Ciclo">Ciclo (12 semanas)</option>
+    <option value="Mes">Mes (4 semanas)</option>
+    <option value="Semana">Semana</option>
+    <option value="Clase">Clase</option>
+  </select>
+</div>
+
+<div class="campo" id="campoFrecuencia" style="display:none;">
+  <label id="labelFrecuencia">Frecuencia</label>
+  <select id="frecuencia" required>
+    <option value="">Seleccionar</option>
+  </select>
+</div>
+<div id="notaClase" style="display:none; font-size:0.9rem; font-style:italic; margin-bottom:14px;">
+  Coordinar hora con el docente.
+</div>
+
+<div class="campo" id="campoGrupo" style="display:none;">
+  <label>Grupo</label>
+  <select id="grupo">
+    <option value="">Seleccionar</option>
+    <option>Grupo 1 (08:00 - 09:40)</option>
+    <option>Grupo 2 (10:00 - 11:40)</option>
+    <option>Grupo 3 (12:00 - 13:40)</option>
+    <option>Grupo 4 (15:00 - 16:40)</option>
+    <option>Grupo 5 (17:00 - 18:40)</option>
+  </select>
+</div>
+
+      <div class="campo">
+        <label>Universidad a la que postula</label>
+        <input type="text" required>
+      </div>
+
+<div class="campo">
+  <label>Método de pago</label>
+  <select id="metodoPago" required>
+    <option value="">Seleccionar</option>
+    <option value="Yape">Yape</option>
+    <option value="BCP">Transferencia</option>
+  </select>
+</div>
+
+<div id="precioTotal" style="font-weight:bold; margin-top:10px;"></div>
+        
+<div id="infoPago" style="display:none; margin-top:15px; padding-bottom:80px;"></div>
+
+      <button type="submit" class="btn-enviar">Inscribirme</button>
+    </form>
+  </div>
+</div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("modalInscripcion");
-    const btnInscripcion = document.getElementById("btn-inscripcion");
-    const closeBtn = document.querySelector(".modal-close");
-    const form = document.getElementById("formInscripcion");
-    const duracion = document.getElementById("duracion");
-    const frecuencia = document.getElementById("frecuencia");
-    const campoFrecuencia = document.getElementById("campoFrecuencia");
-    const campoGrupo = document.getElementById("campoGrupo");
-    const grupo = document.getElementById("grupo");
-    const precioTotal = document.getElementById("precioTotal");
-    const metodoPago = document.getElementById("metodoPago");
-    const infoPago = document.getElementById("infoPago");
 
-    btnInscripcion.addEventListener("click", () => modal.classList.add("active"));
-    closeBtn.addEventListener("click", () => modal.classList.remove("active"));
+  const modal = document.getElementById("modalInscripcion");
+  const btnInscripcion = document.getElementById("btn-inscripcion");
+  const closeBtn = document.querySelector(".modal-close");
+  const form = document.getElementById("formInscripcion");
 
-    duracion.addEventListener("change", () => {
-        campoFrecuencia.style.display = "flex";
-        frecuencia.innerHTML = '<option value="">Seleccionar</option>';
-        campoGrupo.style.display = "none";
-        document.getElementById("notaClase").style.display = (duracion.value === "Clase") ? "block" : "none";
-        document.getElementById("labelFrecuencia").innerText = (duracion.value === "Clase") ? "Tiempo" : "Frecuencia";
-        
-        if (duracion.value === "Clase") {
-            frecuencia.innerHTML += '<option>1 hora</option><option>2 horas</option><option>3 horas</option>';
-        } else {
-            frecuencia.innerHTML += '<option>Diario (5 días)</option><option>Interdiario (3 días)</option><option>Interdiario (2 días)</option>';
-        }
-    });
+  const duracion = document.getElementById("duracion");
+  const frecuencia = document.getElementById("frecuencia");
+  const campoFrecuencia = document.getElementById("campoFrecuencia");
+  const campoGrupo = document.getElementById("campoGrupo");
+  const grupo = document.getElementById("grupo");
+  const precioTotal = document.getElementById("precioTotal");
 
-    frecuencia.addEventListener("change", () => {
-        let p = "";
-        if (duracion.value === "Ciclo") p = frecuencia.value.includes("5") ? "S/ 250" : frecuencia.value.includes("3") ? "S/ 200" : "S/ 180";
-        else if (duracion.value === "Mes") p = frecuencia.value.includes("5") ? "S/ 150" : frecuencia.value.includes("3") ? "S/ 100" : "S/ 80";
-        else if (duracion.value === "Semana") p = frecuencia.value.includes("5") ? "S/ 50" : frecuencia.value.includes("3") ? "S/ 30" : "S/ 20";
-        else if (duracion.value === "Clase") p = frecuencia.value.includes("3") ? "S/ 20" : frecuencia.value.includes("2") ? "S/ 15" : "S/ 10";
-        precioTotal.innerText = "Precio total: " + p;
-        campoGrupo.style.display = (duracion.value !== "Clase" && duracion.value !== "") ? "flex" : "none";
-        grupo.required = (campoGrupo.style.display === "flex");
-    });
+  /* ABRIR MODAL */
+  btnInscripcion.addEventListener("click", () => {
+    modal.classList.add("active");
+      document.body.classList.add("formulario-abierto");
+  });
 
-    metodoPago.addEventListener("change", () => {
-        infoPago.style.display = "block";
-        if (metodoPago.value === "Yape") {
-            infoPago.innerHTML = `<p><strong>Yape: 943356235</strong><br>Envíe la captura al WhatsApp.</p>`;
-        } else if (metodoPago.value === "BCP") {
-            infoPago.innerHTML = `<p><strong>BCP: 19192984638074</strong><br>CCI: 00219119298463807458<br>Pedro Muñoz</p>`;
-        } else infoPago.style.display = "none";
-    });
+  /* CERRAR MODAL */
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+      document.body.classList.remove("formulario-abierto");
+  });
 
-    form.addEventListener("submit", e => {
-        e.preventDefault();
-        let msg = `INSCRIPCIÓN: ${form.elements[1].value} ${form.elements[0].value}\nDuración: ${duracion.value}\nFrecuencia: ${frecuencia.value}\n${precioTotal.innerText}`;
-        window.open("https://wa.me/51943356235?text=" + encodeURIComponent(msg), "_blank");
-    });
+ /* LÓGICA DE DURACIÓN, PRECIOS Y GRUPO */
+  duracion.addEventListener("change", () => {
+    campoFrecuencia.style.display = "flex";
+    frecuencia.innerHTML = '<option value="">Seleccionar</option>';
+    campoGrupo.style.display = "none";
+    grupo.required = false;
+    precioTotal.innerText = "";
 
-    document.getElementById('shareBtn').addEventListener('click', async () => {
-        if (navigator.share) await navigator.share({title: 'LexoPre', url: window.location.href});
-        else { navigator.clipboard.writeText(window.location.href); alert('Copiado'); }
-    });
+    if (duracion.value === "Clase") {
+        document.getElementById("labelFrecuencia").innerText = "Tiempo";
+  frecuencia.innerHTML += `
+    <option>1 hora</option>
+    <option>2 horas</option>
+    <option>3 horas</option>
+  `;
+
+  // MOSTRAR TEXTO
+  document.getElementById("notaClase").style.display = "block";
+
+} else {
+document.getElementById("labelFrecuencia").innerText = "Frecuencia";
+
+  // OCULTAR TEXTO
+  document.getElementById("notaClase").style.display = "none";
+
+  frecuencia.innerHTML += `
+    <option>Diario (5 días)</option>
+    <option>Interdiario (3 días)</option>
+    <option>Interdiario (2 días)</option>
+  `;
+}
+
+  });
+
+  frecuencia.addEventListener("change", () => {
+    let precio = "";
+
+    if (duracion.value === "Ciclo") {
+      precio = frecuencia.value.includes("5") ? "S/ 250" :
+               frecuencia.value.includes("3") ? "S/ 200" : "S/ 180";
+    } else if (duracion.value === "Mes") {
+      precio = frecuencia.value.includes("5") ? "S/ 150" :
+               frecuencia.value.includes("3") ? "S/ 100" : "S/ 80";
+    } else if (duracion.value === "Semana") {
+      precio = frecuencia.value.includes("5") ? "S/ 50" :
+               frecuencia.value.includes("3") ? "S/ 30" : "S/ 20";
+    } else if (duracion.value === "Clase") {
+      precio = frecuencia.value.includes("3") ? "S/ 20" :
+               frecuencia.value.includes("2") ? "S/ 15" : "S/ 10";
+    }
+
+    precioTotal.innerText = "Precio total: " + precio;
+
+    // ESTO ACTIVA LOS 5 GRUPOS OBLIGATORIOS
+    if (duracion.value !== "Clase" && duracion.value !== "") {
+      campoGrupo.style.display = "flex";
+      grupo.required = true; 
+    } else {
+      campoGrupo.style.display = "none";
+      grupo.required = false;
+      grupo.value = "";
+    }
+  });
+/* LÓGICA DE MÉTODOS DE PAGO */
+  const metodoPago = document.getElementById("metodoPago");
+  const infoPago = document.getElementById("infoPago");
+
+  metodoPago.addEventListener("change", () => {
+    infoPago.style.display = "block";
+    infoPago.style.paddingBottom = "20px";
+
+    if (metodoPago.value === "Yape") {
+      infoPago.innerHTML = `
+        <div class="info-pago-texto">
+          <a href="https://app.yape.com.pe/descargar-yape" target="_blank" style="text-decoration:none; color:inherit; font-weight:bold;">
+            <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Yape.jpg" style="height:20px; vertical-align:middle;"> 
+            Yape: 943356235
+          </a>
+          <br>
+          <a href="https://app.yape.com.pe/descargar-yape" target="_blank" class="btn-pago-app btn-yape-app">Abrir Yape</a>
+          Envíe la captura Yape al número <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a> por WhatsApp
+        </div>
+      `;
+    } else if (metodoPago.value === "BCP") {
+      infoPago.innerHTML = `
+        <div class="info-pago-texto">
+          <strong>Transferencia</strong><br>
+          Cuenta: 19192984638074<br>
+          CCI: 00219119298463807458<br>
+          A nombre de: Pedro Pablo Muñoz López
+          <a href="https://play.google.com/store/search?q=bcp&c=apps&hl=es_PE" target="_blank" class="btn-pago-app btn-bcp-app">Abrir BCP</a>
+          Compartir recibo de transferencia a <a href="https://wa.me/51943356235" target="_blank" class="link-ws">943356235</a>
+        </div>
+      `;
+    } else {
+      infoPago.style.display = "none";
+    }
+  });
+ /* ENVIAR A WHATSAPP */
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const apellidos = form.elements[0].value;
+    const nombres = form.elements[1].value;
+    const uniVal = form.elements[5].value; // Índice corregido para Universidad
+    const precioTexto = precioTotal.innerText;
+
+    let mensaje = 
+`INSCRIPCIÓN CLASES VIRTUALES
+Apellidos: ${apellidos}
+Nombres: ${nombres}
+Duración: ${duracion.value}
+Frecuencia: ${frecuencia.value}`;
+
+    // Solo agrega el Grupo si no es una "Clase" y si hay un valor seleccionado
+    if (duracion.value !== "Clase" && grupo.value) {
+      mensaje += `\nGrupo: ${grupo.value}`;
+    }
+
+    mensaje += `\nUniversidad: ${uniVal}`;
+    mensaje += `\n${precioTexto}`;
+    mensaje += `\nMétodo de pago: ${metodoPago.value}`;
+
+    window.open(
+      "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
+      "_blank"
+    );
+  });
+/* LÓGICA DEL BOTÓN COMPARTIR */
+  const shareBtn = document.getElementById('shareBtn');
+
+  shareBtn.addEventListener('click', async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'LexoPre - Clases de Lenguaje',
+          text: 'Prepárate con las mejores clases de Lenguaje virtuales.',
+          url: window.location.href
+        });
+      } catch (err) {
+        console.log('Error al compartir:', err);
+      }
+    } else {
+      // Fallback: Si el navegador no soporta compartir, copia el link
+      navigator.clipboard.writeText(window.location.href);
+      alert('Enlace copiado al portapapeles');
+    }
+  });
 });
+</script>
+
+    <!-- MODAL IMAGEN HORARIOS -->
+<div id="modalImagen" class="modal">
+  <img 
+    src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Horarios.jpg"
+    class="img-full"
+  >
+</div>
+    <script>
+(function () {
+  // Ensucia el historial
+  history.pushState({}, "", location.href);
+  history.pushState({}, "", location.href);
+
+  // Si intenta volver, lo mandamos a la misma página
+  window.addEventListener("popstate", function () {
+    window.location.href = location.href;
+  });
+
+  // Si el navegador usa cache (back/forward)
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  });
+})();
 </script>
 </body>
 </html>
