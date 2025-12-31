@@ -539,6 +539,10 @@ header h2 {
   }
 
 }
+        /* Cuando el formulario está abierto, detener animación del botón */
+.formulario-abierto #btn-inscripcion {
+    animation: none;
+}
   /* AQUÍ ES EL FINAL DEL CSS */
     </style>
 </head>
@@ -699,11 +703,13 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ABRIR MODAL */
   btnInscripcion.addEventListener("click", () => {
     modal.classList.add("active");
+      document.body.classList.add("formulario-abierto");
   });
 
   /* CERRAR MODAL */
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("active");
+      document.body.classList.remove("formulario-abierto");
   });
 
  /* LÓGICA DE DURACIÓN, PRECIOS Y GRUPO */
