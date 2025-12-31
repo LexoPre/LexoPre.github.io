@@ -588,6 +588,9 @@ header h2 {
     <option value="">Seleccionar</option>
   </select>
 </div>
+<div id="notaClase" style="display:none; font-size:0.9rem; font-style:italic; margin-bottom:14px;">
+  Coordinar hora con el docente.
+</div>
 
 <div class="campo" id="campoGrupo" style="display:none;">
   <label>Grupo</label>
@@ -662,6 +665,10 @@ document.addEventListener("DOMContentLoaded", () => {
     <option>2 horas</option>
     <option>3 horas</option>
   `;
+
+  document.getElementById("notaClase").style.display = "block";
+} else {
+document.getElementById("notaClase").style.display = "none";
 
   // TEXTO ABAJO DE FRECUENCIA
   let nota = document.getElementById("notaClase");
