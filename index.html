@@ -573,8 +573,17 @@ header h2 {
     <option value="">Seleccionar</option>
   </select>
 </div>
-<div id="notaClase" style="display:none; font-size:0.9rem; font-style:italic; margin-bottom:14px;">
-  Coordinar hora con el docente.
+<div id="seccionHoraEspecial" style="display:none;">
+  <div class="campo">
+    <label>Hora</label>
+    <input type="text" id="inputHora" placeholder="Ej: 9:00 am">
+  </div>
+  <div id="errorHora" style="color: red; font-size: 0.8rem; display: none; margin-bottom: 10px; text-align: right;">
+    Horario no disponible
+  </div>
+  <div style="font-size:0.9rem; font-style:italic; margin-bottom:14px;">
+    Coordinar hora con el docente.
+  </div>
 </div>
 
 <div class="campo" id="campoGrupo" style="display:none;">
