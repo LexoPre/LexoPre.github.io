@@ -583,7 +583,7 @@ header h2 {
 </div>
 
 <div class="campo" id="campoFrecuencia" style="display:none;">
-  <label>Frecuencia</label>
+  <label id="labelFrecuencia">Frecuencia</label>
   <select id="frecuencia" required>
     <option value="">Seleccionar</option>
   </select>
@@ -660,6 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
     precioTotal.innerText = "";
 
     if (duracion.value === "Clase") {
+        document.getElementById("labelFrecuencia").innerText = "Tiempo";
   frecuencia.innerHTML += `
     <option>1 hora</option>
     <option>2 horas</option>
@@ -670,6 +671,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("notaClase").style.display = "block";
 
 } else {
+document.getElementById("labelFrecuencia").innerText = "Frecuencia";
 
   // OCULTAR TEXTO
   document.getElementById("notaClase").style.display = "none";
