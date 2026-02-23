@@ -650,11 +650,11 @@ header h2 {
   </select>
 </div>
 <div style="text-align:right; margin-bottom:10px;">
-  <a href="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/Horarios.jpg" 
-     target="_blank"
-     style="font-weight:bold; text-decoration:underline; font-size:0.9rem;">
-     Abrir horario
-  </a>
+ <a href="#" 
+   id="abrirHorario"
+   style="font-weight:bold; text-decoration:underline; font-size:0.9rem;">
+   Abrir horario
+</a>
 </div>
       <div class="campo">
         <label>Universidad</label>
@@ -697,6 +697,29 @@ document.addEventListener("DOMContentLoaded", () => {
   btnInscripcion.addEventListener("click", () => {
     modal.classList.add("active");
       document.body.classList.add("formulario-abierto");
+      /* ===== ABRIR MODAL HORARIOS ===== */
+
+const modalImagen = document.getElementById("modalImagen");
+const imgHorarios = document.getElementById("imgHorarios");
+const abrirHorario = document.getElementById("abrirHorario");
+
+// Abrir desde imagen
+imgHorarios.addEventListener("click", () => {
+  modalImagen.classList.add("active");
+});
+
+// Abrir desde texto
+if (abrirHorario) {
+  abrirHorario.addEventListener("click", (e) => {
+    e.preventDefault();
+    modalImagen.classList.add("active");
+  });
+}
+
+// Cerrar al hacer clic fuera
+modalImagen.addEventListener("click", () => {
+  modalImagen.classList.remove("active");
+});
   });
 
   /* CERRAR MODAL */
