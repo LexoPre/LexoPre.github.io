@@ -312,14 +312,29 @@ header h2 {
 
 .universidades {
     display: flex;
-    flex-wrap: nowrap;       /* Fuerza una sola línea horizontal */
+    flex-wrap: nowrap;
     gap: 12px;
-    overflow-x: auto;        /* Permite deslizar a la izquierda/derecha */
-    padding: 10px 5px;
-    scroll-behavior: smooth; /* Deslizamiento suave */
+    overflow-x: auto;
+    padding: 15px 5px;
+    scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    align-items: center;
 }
 
+.universidades::-webkit-scrollbar { display: none; }
+.universidades { -ms-overflow-style: none; scrollbar-width: none; }
+
+.uni-tag {
+    background: #E0E0E0 !important;
+    color: #333333 !important;
+    padding: 12px 0;
+    border-radius: 50px !important;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 95px;
+    flex: 0 0 auto;
+    text-align: center;
+}
 /* Oculta la barra de desplazamiento en todos los navegadores */
 .universidades::-webkit-scrollbar { display: none; }
 .universidades { -ms-overflow-style: none; scrollbar-width: none; }
