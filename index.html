@@ -414,10 +414,6 @@ header h2 {
 }
 
 /* Enlaces en negro, EXCEPTO los botones de apps que deben ser blancos */
-.info-pago-texto a {
-  color: #0D0D0D !important;
-}
-
 .info-pago-texto a.btn-pago-app {
   color: #ffffff !important;
 }
@@ -469,6 +465,22 @@ header h2 {
         /* Cuando el formulario está abierto, detener animación del botón */
 .formulario-abierto #btn-inscripcion {
     animation: none;
+}
+/* --- Ajuste de color para Redes Sociales y Dudas (Modo Claro/Oscuro) --- */
+
+/* 1. MODO CLARO (Texto en Negro) */
+.card p a, 
+.faq-pregunta {
+    color: #000000 !important;
+    text-decoration: none; /* Quita el subrayado de las redes sociales */
+}
+
+/* 2. MODO OSCURO (Texto en Blanco) */
+@media (prefers-color-scheme: dark) {
+    .card p a, 
+    .faq-pregunta {
+        color: #ffffff !important;
+    }
 }
   /* AQUÍ ES EL FINAL DEL CSS */
         /* ESTILOS FAQ */
