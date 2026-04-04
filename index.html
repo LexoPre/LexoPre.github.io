@@ -598,15 +598,10 @@ header h2 {
     <h2>Formulario de Inscripción</h2>
 
     <form id="formInscripcion">
-      <div class="campo">
-        <label>Apellidos</label>
-        <input type="text" required>
-      </div>
-
-      <div class="campo">
-        <label>Nombres</label>
-        <input type="text" required>
-      </div>
+<div class="campo">
+  <label>Apellidos y Nombres</label>
+  <input type="text" id="identificacionUsuario" required>
+</div>
 
    <div class="campo">
   <label>Duración</label>
@@ -864,15 +859,8 @@ modalImagen.addEventListener("click", () => {
  /* ENVIAR A WHATSAPP */
   form.addEventListener("submit", e => {
     e.preventDefault();
-      if (duracion.value === "Clase") {
-      const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
-      const errorVisible = document.getElementById("errorHora").style.display === "block";
-      if (!/^(1[0-2]|[1-9])(:[0-5][0-9])?\s*(am|pm)$/.test(valorHora) || errorVisible) {
-        alert("Por favor, ingrese una hora válida (Ej: 10am o 4:30pm) dentro del rango permitido.");
-        return;
-      }
-    }
-// Bloquear envío si la hora es inválida (solo cuando es "Clase")
+
+    // Validación de hora (solo si es "Clase")
     if (duracion.value === "Clase") {
       const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
       const errorVisible = document.getElementById("errorHora").style.display === "block";
@@ -881,15 +869,15 @@ modalImagen.addEventListener("click", () => {
         return;
       }
     }
-    const apellidos = form.elements[0].value;
-    const nombres = form.elements[1].value;
-    const uniVal = form.elements[5].value; // Índice corregido para Universidad
+
+    // --- AQUÍ ESTÁ EL CAMBIO CLAVE ---
+    const nombreCompleto = document.getElementById("identificacionUsuario").value;
+    const uniVal = form.querySelector('input[required]:not(#identificacionUsuario)').value; 
     const precioTexto = precioTotal.innerText;
 
-   let mensaje = 
+    let mensaje = 
 `📚INSCRIPCIÓN A CLASES VIRTUALES
-Apellidos: ${apellidos}
-Nombres: ${nombres}
+Estudiante: ${nombreCompleto}
 Duración: ${duracion.value}
 Frecuencia: ${frecuencia.value}`;
 
@@ -909,8 +897,7 @@ Frecuencia: ${frecuencia.value}`;
       "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
       "_blank"
     );
-  });
-/* LÓGICA DEL BOTÓN COMPARTIR */
+  });/* LÓGICA DEL BOTÓN COMPARTIR */
   const shareBtn = document.getElementById('shareBtn');
 
   shareBtn.addEventListener('click', async () => {
