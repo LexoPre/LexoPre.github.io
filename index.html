@@ -347,19 +347,19 @@ header h2 {
 }
 
 .uni-tag {
-    background: #E0E0E0;
-    color: #333333;
+    background: #EEEEEE !important; /* Gris claro y elegante */
+    color: #333333 !important;      /* Texto oscuro para contraste */
     padding: 12px 0;
     border-radius: 12px;
     font-size: 16px;
     font-weight: bold;
     width: 85px;
-    flex-shrink: 0; /* CRÍTICO: Evita que los botones se encojan */
+    flex-shrink: 0;                 /* Evita que se aplasten al desplazar */
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* SHARE */
@@ -434,14 +434,6 @@ header h2 {
   .info-pago-texto strong {
     color: #ffffff !important;
   }
-
-@media (prefers-color-scheme: dark) {
-  .uni-tag {
-    background: #4A4A4A !important; /* Gris oscuro para modo noche */
-    color: #ffffff !important;
-    width: 90px !important;
-  }
-}
 /* ===== AJUSTES TEXTO MODO CLARO ===== */
 
 /* Número de contacto */
