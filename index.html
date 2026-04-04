@@ -311,28 +311,38 @@ header h2 {
 .btn-telegram { background: #2AABEE; }
 
 /* UNIVERSIDADES */
+/* UNIVERSIDADES - DESPLAZAMIENTO HORIZONTAL */
 .universidades {
     display: flex;
-    flex-wrap: wrap;       /* Permite que bajen a la siguiente fila */
-    gap: 10px;             /* Espacio exacto entre botones */
-    justify-content: center; /* Los centra en la tarjeta */
+    gap: 10px;
+    overflow-x: auto; /* Permite el scroll horizontal */
+    white-space: nowrap; /* Evita que el contenido salte de línea */
+    padding: 10px 5px;
+    scrollbar-width: none; /* Oculta scrollbar en Firefox */
+    -ms-overflow-style: none; /* Oculta scrollbar en IE/Edge */
+    justify-content: flex-start; /* Alinea al inicio para permitir el scroll */
+}
+
+/* Ocultar scrollbar en Chrome, Safari y Opera */
+.universidades::-webkit-scrollbar {
+    display: none;
 }
 
 .uni-tag {
-    background: #E0E0E0;   /* Gris claro */
-    color: #333333;        /* Texto oscuro */
-    padding: 12px 0;       /* Espacio arriba y abajo */
+    background: #E0E0E0;
+    color: #333333;
+    padding: 12px 0;
     border-radius: 12px;
     font-size: 16px;
     font-weight: bold;
-    width: 85px;           /* ANCHO FIJO: Esto hace que todos midan lo mismo */
-    text-align: center;    /* Centra el texto */
+    width: 85px;
+    flex-shrink: 0; /* CRÍTICO: Evita que los botones se encojan */
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave para que parezca botón */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 
 /* SHARE */
 #shareBtn {
