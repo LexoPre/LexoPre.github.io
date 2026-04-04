@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -470,6 +460,40 @@ header h2 {
     animation: none;
 }
   /* AQUÍ ES EL FINAL DEL CSS */
+        /* ESTILOS FAQ */
+.faq-item {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-pregunta {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: inherit;
+}
+.faq-respuesta {
+    display: none;
+    padding-bottom: 15px;
+    line-height: 1.5;
+    font-size: 1rem;
+    color: #555;
+}
+@media (prefers-color-scheme: dark) {
+    .faq-respuesta { color: #ccc !important; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+}
+.faq-item.active .faq-respuesta { display: block; }
+.faq-item.active .faq-pregunta::after { content: "▲"; font-size: 0.8rem; }
+.faq-pregunta::after { content: "▼"; font-size: 0.8rem; opacity: 0.5; }
     </style>
 </head>
 
@@ -588,6 +612,39 @@ header h2 {
     </a>
   </p>
 
+</div>
+    <div class="card">
+  <h2>Preguntas Frecuentes</h2>
+  
+  <div class="faq-item">
+    <button class="faq-pregunta">¿Cómo puedo unirme a la clase?</button>
+    <div class="faq-respuesta">Solo haz clic en el enlace que enviamos al grupo de Telegram o WhatsApp a la hora programada. No necesitas crear cuentas.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-pregunta">¿Puedo acceder desde cualquier dispositivo?</button>
+    <div class="faq-respuesta">Sí, el sistema es compatible con PC, laptops, tabletas y celulares con conexión a internet.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-pregunta">¿Cómo resuelvo mis dudas?</button>
+    <div class="faq-respuesta">Puedes preguntar por el chat en vivo durante la clase o dejar tu consulta en el grupo privado de alumnos.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-pregunta">¿Hay simulacros?</button>
+    <div class="faq-respuesta">Sí, puedes solicitar un simulacro de Lenguaje para evaluar tu nivel actual en el curso.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-pregunta">¿Cómo son las clases?</button>
+    <div class="faq-respuesta">Son sesiones dinámicas que combinan teoría clave con la resolución de ejercicios tipo admisión.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-pregunta">¿Qué pasa si tengo problemas técnicos?</button>
+    <div class="faq-respuesta">Escribe de inmediato al soporte por WhatsApp o Telegram para ayudarte a conectarte en el momento.</div>
+  </div>
 </div>
 </main>
 
@@ -909,6 +966,13 @@ Frecuencia: ${frecuencia.value}`;
       "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
       "_blank"
     );
+  });
+    // LÓGICA ACORDEÓN FAQ
+  document.querySelectorAll('.faq-pregunta').forEach(boton => {
+    boton.addEventListener('click', () => {
+      const item = boton.parentElement;
+      item.classList.toggle('active');
+    });
   });
 /* LÓGICA DEL BOTÓN COMPARTIR */
   const shareBtn = document.getElementById('shareBtn');
