@@ -999,15 +999,27 @@ Frecuencia: ${frecuencia.value}`;
       } catch (err) {
         console.log('Error al compartir:', err);
       }
-    } else {
+  } else {
       // Fallback: Si el navegador no soporta compartir, copia el link
       navigator.clipboard.writeText(window.location.href);
       alert('Enlace copiado al portapapeles');
     }
   });
-});
-</script>
 
+  /* LÓGICA DE ACORDEÓN PARA FAQ */
+  const faqs = document.querySelectorAll(".faq-item");
+  faqs.forEach(faq => {
+    faq.querySelector(".faq-pregunta").addEventListener("click", () => {
+      // Cierra las demás antes de abrir la actual
+      faqs.forEach(item => {
+        if (item !== faq) item.classList.remove("active");
+      });
+      faq.classList.toggle("active");
+    });
+  });
+
+}); // Este cierra el DOMContentLoaded
+</script>
     <!-- MODAL IMAGEN HORARIOS -->
 <div id="modalImagen" class="modal">
   <img 
