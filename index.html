@@ -726,13 +726,6 @@ header h2 {
     <option>Grupo 5 (17:00 - 18:40)</option>
   </select>
 </div>
-<div style="text-align:right; margin-bottom:10px;">
- <a href="#" 
-   id="abrirHorario"
-   style="font-weight:bold; text-decoration:underline; font-size:0.9rem;">
-   Abrir horario
-</a>
-</div>
       <div class="campo">
         <label>Universidad</label>
         <input type="text" required>
@@ -778,20 +771,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const modalImagen = document.getElementById("modalImagen");
 const imgHorarios = document.getElementById("imgHorarios");
-const abrirHorario = document.getElementById("abrirHorario");
 
 // Abrir desde imagen
 imgHorarios.addEventListener("click", () => {
   modalImagen.classList.add("active");
 });
-
-// Abrir desde texto
-if (abrirHorario) {
-  abrirHorario.addEventListener("click", (e) => {
-    e.preventDefault();
-    modalImagen.classList.add("active");
-  });
-}
 
 // Cerrar al hacer clic fuera
 modalImagen.addEventListener("click", () => {
