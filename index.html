@@ -118,28 +118,43 @@
     margin-bottom: 20px;
 }
 
-/* CAMPOS ALINEADOS */
+/* CAMPOS CON MÁS ESPACIO */
 .campo {
     display: flex;
     align-items: center;
-    margin-bottom: 14px;
-    justify-content: space-between; /* Asegura distribución uniforme */
+    margin-bottom: 22px; /* Aumentado de 14px a 22px para dar más aire */
+    justify-content: space-between;
 }
 
 .campo label {
-    width: 40%; /* Ancho fijo para las etiquetas */
+    width: 40%;
     font-weight: bold;
-    flex-shrink: 0; /* Evita que la etiqueta se comprima */
+    flex-shrink: 0;
 }
 
 .campo input,
 .campo select {
-    width: 60%; /* Ancho fijo para los recuadros */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
-    padding: 10px;
+    width: 60%;
+    box-sizing: border-box;
+    padding: 12px; /* Un poco más de relleno interno para que se vean mejor */
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 1rem;
+}
+
+/* Espacio extra específico para el título del formulario */
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 30px; /* Más espacio debajo de "Formulario de Inscripción" */
+}
+
+/* Ajuste para el enlace de Abrir horario */
+#abrirHorario {
+    display: inline-block;
+    margin-bottom: 15px; /* Espacio debajo del enlace de horario */
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 0.9rem;
 }
 /* BOTÓN */
 .btn-enviar {
