@@ -469,49 +469,6 @@ header h2 {
 .formulario-abierto #btn-inscripcion {
     animation: none;
 }
-        /* ===== SECCIÓN FAQ ===== */
-.faq-item {
-    border-bottom: 1px solid #eee;
-    padding: 10px 0;
-}
-.faq-item:last-child {
-    border-bottom: none;
-}
-.faq-pregunta {
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: left;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #1857FF;
-}
-.faq-respuesta {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    padding: 0 10px;
-}
-.faq-respuesta p {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-}
-/* Clase para activar el despliegue */
-.faq-item.active .faq-respuesta {
-    max-height: 200px; /* Ajusta según el largo del texto */
-}
-.faq-item.active .faq-pregunta::after {
-    content: "−";
-}
-.faq-pregunta::after {
-    content: "+";
-    font-size: 1.5rem;
-}
   /* AQUÍ ES EL FINAL DEL CSS */
     </style>
 </head>
@@ -589,7 +546,7 @@ header h2 {
   <p>📞 <a href="tel:943356235"><b>943356235</b></a></p>
 </div>
     <div class="card">
-  <h2>Redes sociales</h2>
+  <h2>Redes Sociales (Material gratuito)</h2>
 
   <p>
     <a href="https://t.me/LexoPre" target="_blank">
@@ -632,51 +589,6 @@ header h2 {
   </p>
 
 </div>
-    <div class="card">
-  <h2>Preguntas Frecuentes</h2>
-  
-  <div class="faq-item">
-    <button class="faq-pregunta">¿Cómo puedo unirme a la clase?</button>
-    <div class="faq-respuesta">
-      <p>Solo haz clic en el enlace que enviamos al grupo de Telegram o WhatsApp a la hora programada. No necesitas crear una cuenta adicional.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-pregunta">¿Puedo acceder desde cualquier dispositivo?</button>
-    <div class="faq-respuesta">
-      <p>Sí, las clases son compatibles con PC, laptops, tablets y celulares con conexión a internet.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-pregunta">¿Cómo resuelvo mis dudas?</button>
-    <div class="faq-respuesta">
-      <p>Puedes preguntar por el chat en vivo durante la clase o dejar tu consulta en el grupo privado de alumnos.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-pregunta">¿Hay simulacros?</button>
-    <div class="faq-respuesta">
-      <p>Sí, puedes solicitar un simulacro de Lenguaje personalizado para medir tu nivel actual en el curso.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-pregunta">¿Cómo son las clases?</button>
-    <div class="faq-respuesta">
-      <p>Son sesiones dinámicas que combinan teoría clave con la resolución de ejercicios tipo admisión.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-pregunta">¿Qué pasa si tengo problemas técnicos?</button>
-    <div class="faq-respuesta">
-      <p>Escribe de inmediato al soporte por WhatsApp o Telegram para ayudarte a conectarte rápidamente.</p>
-    </div>
-  </div>
-</div>
 </main>
 
 <!-- ===== MODAL INSCRIPCIÓN ===== -->
@@ -686,10 +598,15 @@ header h2 {
     <h2>Formulario de Inscripción</h2>
 
     <form id="formInscripcion">
-<div class="campo">
-  <label>Nombre</label>
-  <input type="text" id="identificacionUsuario" required>
-</div>
+      <div class="campo">
+        <label>Apellidos</label>
+        <input type="text" required>
+      </div>
+
+      <div class="campo">
+        <label>Nombres</label>
+        <input type="text" required>
+      </div>
 
    <div class="campo">
   <label>Duración</label>
@@ -947,8 +864,15 @@ modalImagen.addEventListener("click", () => {
  /* ENVIAR A WHATSAPP */
   form.addEventListener("submit", e => {
     e.preventDefault();
-
-    // Validación de hora (solo si es "Clase")
+      if (duracion.value === "Clase") {
+      const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
+      const errorVisible = document.getElementById("errorHora").style.display === "block";
+      if (!/^(1[0-2]|[1-9])(:[0-5][0-9])?\s*(am|pm)$/.test(valorHora) || errorVisible) {
+        alert("Por favor, ingrese una hora válida (Ej: 10am o 4:30pm) dentro del rango permitido.");
+        return;
+      }
+    }
+// Bloquear envío si la hora es inválida (solo cuando es "Clase")
     if (duracion.value === "Clase") {
       const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
       const errorVisible = document.getElementById("errorHora").style.display === "block";
@@ -957,15 +881,15 @@ modalImagen.addEventListener("click", () => {
         return;
       }
     }
-
-    // --- AQUÍ ESTÁ EL CAMBIO CLAVE ---
-    const nombreCompleto = document.getElementById("identificacionUsuario").value;
-    const uniVal = form.querySelector('input[required]:not(#identificacionUsuario)').value; 
+    const apellidos = form.elements[0].value;
+    const nombres = form.elements[1].value;
+    const uniVal = form.elements[5].value; // Índice corregido para Universidad
     const precioTexto = precioTotal.innerText;
 
-    let mensaje = 
+   let mensaje = 
 `📚INSCRIPCIÓN A CLASES VIRTUALES
-Estudiante: ${nombreCompleto}
+Apellidos: ${apellidos}
+Nombres: ${nombres}
 Duración: ${duracion.value}
 Frecuencia: ${frecuencia.value}`;
 
@@ -985,7 +909,8 @@ Frecuencia: ${frecuencia.value}`;
       "https://wa.me/51943356235?text=" + encodeURIComponent(mensaje),
       "_blank"
     );
-  });/* LÓGICA DEL BOTÓN COMPARTIR */
+  });
+/* LÓGICA DEL BOTÓN COMPARTIR */
   const shareBtn = document.getElementById('shareBtn');
 
   shareBtn.addEventListener('click', async () => {
@@ -999,27 +924,15 @@ Frecuencia: ${frecuencia.value}`;
       } catch (err) {
         console.log('Error al compartir:', err);
       }
-  } else {
+    } else {
       // Fallback: Si el navegador no soporta compartir, copia el link
       navigator.clipboard.writeText(window.location.href);
       alert('Enlace copiado al portapapeles');
     }
   });
-
-  /* LÓGICA DE ACORDEÓN PARA FAQ */
-  const faqs = document.querySelectorAll(".faq-item");
-  faqs.forEach(faq => {
-    faq.querySelector(".faq-pregunta").addEventListener("click", () => {
-      // Cierra las demás antes de abrir la actual
-      faqs.forEach(item => {
-        if (item !== faq) item.classList.remove("active");
-      });
-      faq.classList.toggle("active");
-    });
-  });
-
-}); // Este cierra el DOMContentLoaded
+});
 </script>
+
     <!-- MODAL IMAGEN HORARIOS -->
 <div id="modalImagen" class="modal">
   <img 
@@ -1046,16 +959,5 @@ Frecuencia: ${frecuencia.value}`;
   });
 })();
 </script>
-    /* LÓGICA DE ACORDEÓN PARA FAQ */
-  const faqs = document.querySelectorAll(".faq-item");
-  faqs.forEach(faq => {
-    faq.querySelector(".faq-pregunta").addEventListener("click", () => {
-      // Opcional: cierra las demás antes de abrir la actual
-      faqs.forEach(item => {
-        if (item !== faq) item.classList.remove("active");
-      });
-      faq.classList.toggle("active");
-    });
-  });
 </body>
 </html>
