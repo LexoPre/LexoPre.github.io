@@ -310,29 +310,31 @@ header h2 {
 .btn-whatsapp { background: #25D366; }
 .btn-telegram { background: #2AABEE; }
 
-/* UNIVERSIDADES */
 .universidades {
     display: flex;
-    flex-wrap: wrap;       /* Permite que bajen a la siguiente fila */
-    gap: 10px;             /* Espacio exacto entre botones */
-    justify-content: center; /* Los centra en la tarjeta */
+    flex-wrap: nowrap;       /* Fuerza una sola línea horizontal */
+    gap: 12px;
+    overflow-x: auto;        /* Permite deslizar a la izquierda/derecha */
+    padding: 10px 5px;
+    scroll-behavior: smooth; /* Deslizamiento suave */
+    -webkit-overflow-scrolling: touch;
 }
 
-.uni-tag {
-    background: #E0E0E0;   /* Gris claro */
-    color: #333333;        /* Texto oscuro */
-    padding: 12px 0;       /* Espacio arriba y abajo */
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    width: 85px;           /* ANCHO FIJO: Esto hace que todos midan lo mismo */
-    text-align: center;    /* Centra el texto */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave para que parezca botón */
-}
+/* Oculta la barra de desplazamiento en todos los navegadores */
+.universidades::-webkit-scrollbar { display: none; }
+.universidades { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* La flecha indicadora (solo aparece en pantallas grandes) */
+.universidades::after {
+    content: "➤";
+    position: sticky;
+    right: 0;
+    align-self: center;
+    font-size: 0.9rem;
+    color: #1857FF;
+    opacity: 0.6;
+    padding-left: 10px;
+}
 
 /* SHARE */
 #shareBtn {
@@ -409,10 +411,15 @@ header h2 {
 
 @media (prefers-color-scheme: dark) {
   .uni-tag {
-    background: #4A4A4A !important; /* Gris oscuro para modo noche */
+    background: #4A4A4A !important; /* Gris oscuro */
     color: #ffffff !important;
-    width: 90px !important;
+    min-width: 95px !important;
   }
+  .universidades::after { 
+    color: #ffffff; 
+    background: linear-gradient(to left, #353535 70%, transparent);
+  }
+}
 }
 /* ===== AJUSTES TEXTO MODO CLARO ===== */
 
