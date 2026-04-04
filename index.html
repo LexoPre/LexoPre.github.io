@@ -118,26 +118,29 @@
     margin-bottom: 20px;
 }
 
-/* CAMPOS */
+/* CAMPOS ALINEADOS */
 .campo {
     display: flex;
     align-items: center;
     margin-bottom: 14px;
+    justify-content: space-between; /* Asegura distribución uniforme */
 }
 
 .campo label {
-    width: 45%;
+    width: 40%; /* Ancho fijo para las etiquetas */
     font-weight: bold;
+    flex-shrink: 0; /* Evita que la etiqueta se comprima */
 }
 
 .campo input,
 .campo select {
-    width: 55%;
+    width: 60%; /* Ancho fijo para los recuadros */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #ccc;
+    font-size: 1rem;
 }
-
 /* BOTÓN */
 .btn-enviar {
     margin-top: 20px;
