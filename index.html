@@ -118,30 +118,27 @@
     margin-bottom: 20px;
 }
 
-/* CAMPOS CON MÁS ESPACIO */
 .campo {
     display: flex;
     align-items: center;
-    margin-bottom: 22px; /* Aumentado de 14px a 22px para dar más aire */
+    margin-bottom: 22px; /* Más espacio entre filas */
     justify-content: space-between;
 }
 
 .campo label {
-    width: 40%;
+    width: 40%; /* Ancho fijo para el texto */
     font-weight: bold;
     flex-shrink: 0;
 }
 
 .campo input,
 .campo select {
-    width: 60%;
+    width: 60%; /* Ancho fijo para el recuadro */
     box-sizing: border-box;
-    padding: 12px; /* Un poco más de relleno interno para que se vean mejor */
+    padding: 12px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    font-size: 1rem;
 }
-
 /* Espacio extra específico para el título del formulario */
 .modal-content h2 {
     text-align: center;
@@ -433,13 +430,6 @@ header h2 {
   .info-pago-texto a,
   .info-pago-texto strong {
     color: #ffffff !important;
-  }
-
-@media (prefers-color-scheme: dark) {
-  .uni-tag {
-    background: #4A4A4A !important; /* Gris oscuro para modo noche */
-    color: #ffffff !important;
-    width: 90px !important;
   }
 }
 /* ===== AJUSTES TEXTO MODO CLARO ===== */
