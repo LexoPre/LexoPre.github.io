@@ -718,11 +718,6 @@ header h2 {
     <option>Grupo 5 (17:00 - 18:40)</option>
   </select>
 </div>
-      <div class="campo">
-        <label>Universidad</label>
-        <input type="text" required>
-      </div>
-
 <div class="campo">
   <label>Pago</label>
   <select id="metodoPago" required>
@@ -918,16 +913,17 @@ modalImagen.addEventListener("click", () => {
   form.addEventListener("submit", e => {
     e.preventDefault();
 
+    // Validación de hora (solo si es Clase)
     if (duracion.value === "Clase") {
       const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
       const errorVisible = document.getElementById("errorHora").style.display === "block";
       if (!/^(1[0-2]|[1-9])(:[0-5][0-9])?\s*(am|pm)$/.test(valorHora) || errorVisible) {
-        alert("Por favor, ingrese una hora válida (Ej: 10am o 4:30pm) dentro del rango permitido.");
+        alert("Por favor, ingrese una hora válida.");
         return;
       }
     }
 
-    // AQUÍ ESTÁ EL CAMBIO: Capturamos el primer campo como "Nombres"
+    // Ahora Nombres es el primer campo (índice 0)
     const nombres = form.elements[0].value; 
     const precioTexto = precioTotal.innerText;
 
@@ -944,7 +940,7 @@ Frecuencia: ${frecuencia.value}`;
       mensaje += `\nGrupo: ${grupo.value}`;
     }
 
-    // Quitamos Universidad y Apellidos, pero mantenemos el resto
+    // Se eliminó la línea de Universidad y Apellidos aquí
     mensaje += `\n${precioTexto}`;
     mensaje += `\nPago: ${metodoPago.value}`;
 
