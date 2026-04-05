@@ -482,6 +482,26 @@ header h2 {
         color: #ffffff !important;
     }
 }
+        /* Alineación del Logo y Título */
+.logo-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; 
+    margin-bottom: 10px;
+}
+
+.logo-top {
+    width: 60px;  
+    height: 60px;
+    border-radius: 14px; 
+    object-fit: cover;
+}
+
+header h1 {
+    margin: 0 !important;
+    font-size: 3.5rem;
+}
   /* AQUÍ ES EL FINAL DEL CSS */
         /* ESTILOS FAQ */
 .faq-item {
@@ -529,7 +549,10 @@ header h2 {
 <button id="shareBtn">🔗</button>
 
 <header>
-    <h1>LEXO</h1>
+<div class="logo-contenedor">
+        <img src="https://raw.githubusercontent.com/LexoPre/LexoPre.github.io/main/favicon.ico" class="logo-top">
+        <h1>LEXO</h1>
+    </div>
     <h2>Clases virtuales de lenguaje</h2>
 
     <div class="foto-docente">
