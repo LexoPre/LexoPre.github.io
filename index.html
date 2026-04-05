@@ -674,16 +674,6 @@ header h2 {
     <h2>Formulario de Inscripción</h2>
 
     <form id="formInscripcion">
-      <div class="campo">
-        <label>Apellidos</label>
-        <input type="text" required>
-      </div>
-
-      <div class="campo">
-        <label>Nombres</label>
-        <input type="text" required>
-      </div>
-
    <div class="campo">
   <label>Duración</label>
   <select id="duracion" required>
@@ -924,7 +914,8 @@ modalImagen.addEventListener("click", () => {
  /* ENVIAR A WHATSAPP */
   form.addEventListener("submit", e => {
     e.preventDefault();
-      if (duracion.value === "Clase") {
+
+    if (duracion.value === "Clase") {
       const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
       const errorVisible = document.getElementById("errorHora").style.display === "block";
       if (!/^(1[0-2]|[1-9])(:[0-5][0-9])?\s*(am|pm)$/.test(valorHora) || errorVisible) {
@@ -932,23 +923,11 @@ modalImagen.addEventListener("click", () => {
         return;
       }
     }
-// Bloquear envío si la hora es inválida (solo cuando es "Clase")
-    if (duracion.value === "Clase") {
-      const valorHora = document.getElementById("inputHora").value.toLowerCase().trim();
-      const errorVisible = document.getElementById("errorHora").style.display === "block";
-      if (!/^(1[0-2]|[1-9])(:[0-5][0-9])?\s*(am|pm)$/.test(valorHora) || errorVisible) {
-        alert("Por favor, ingrese una hora válida dentro del rango permitido.");
-        return;
-      }
-    }
-    const apellidos = form.elements[0].value;
-    const nombres = form.elements[1].value;
-    const uniVal = form.elements[5].value; // Índice corregido para Universidad
+
+    const nombres = form.elements[0].value; 
     const precioTexto = precioTotal.innerText;
 
-   let mensaje = 
-`📚INSCRIPCIÓN A CLASES VIRTUALES
-Apellidos: ${apellidos}
+    let mensaje = `📚INSCRIPCIÓN A CLASES VIRTUALES
 Nombres: ${nombres}
 Duración: ${duracion.value}
 Frecuencia: ${frecuencia.value}`;
@@ -961,7 +940,6 @@ Frecuencia: ${frecuencia.value}`;
       mensaje += `\nGrupo: ${grupo.value}`;
     }
 
-    mensaje += `\nUniversidad: ${uniVal}`;
     mensaje += `\n${precioTexto}`;
     mensaje += `\nPago: ${metodoPago.value}`;
 
