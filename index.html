@@ -914,7 +914,7 @@ modalImagen.addEventListener("click", () => {
       infoPago.style.display = "none";
     }
   });
- /* ENVIAR A WHATSAPP */
+/* ENVIAR A WHATSAPP */
   form.addEventListener("submit", e => {
     e.preventDefault();
 
@@ -927,6 +927,7 @@ modalImagen.addEventListener("click", () => {
       }
     }
 
+    // AQUÍ ESTÁ EL CAMBIO: Capturamos el primer campo como "Nombres"
     const nombres = form.elements[0].value; 
     const precioTexto = precioTotal.innerText;
 
@@ -943,6 +944,7 @@ Frecuencia: ${frecuencia.value}`;
       mensaje += `\nGrupo: ${grupo.value}`;
     }
 
+    // Quitamos Universidad y Apellidos, pero mantenemos el resto
     mensaje += `\n${precioTexto}`;
     mensaje += `\nPago: ${metodoPago.value}`;
 
