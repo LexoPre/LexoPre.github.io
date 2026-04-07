@@ -11,7 +11,14 @@
     <meta name="keywords" content="Clases virtuales de lenguaje, academia LEXO">
     <meta name="author" content="LEXO - Pedro Muñoz">
     <meta name="robots" content="index, follow">
-
+/* GRID 2 COLUMNAS SOLO EN ESCRITORIO */
+@media (min-width: 900px) {
+  .grid-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
     <style>
 /* ===== MODO OSCURO UNIFICADO ===== */
         @media (prefers-color-scheme: dark) {
